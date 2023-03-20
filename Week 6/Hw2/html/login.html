@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    
+    <form action="/login" method="post">
+
+        <div class="title">
+            <h3>Login</h3>
+        </div>
+        <div class="field">
+            <label>Username:</label>
+            <input type="text" name="username"/> 
+            <br /> 
+        </div>
+        <div class="field"> 
+            <label>Password:</label>
+            <input type="password" name="password" required /> 
+        </div>
+        <div class="field"> 
+            <input class="submi-btn" type="submit" value="Submit"   required>
+        </div>
+        <label id="error-message"></label>
+    </form>
+
+    <script> 
+        const urlParams = newURLSearchParams(window.location.search); 
+        const info = urlParams.get('info'); 
+
+        if(info) { 
+            const errorMessage = document.getElementById("error-message"); 
+            errorMessage.innerText = info; 
+            errorMessage.style.display = "block";
+        }
+    </script>
+</body>
+</html>

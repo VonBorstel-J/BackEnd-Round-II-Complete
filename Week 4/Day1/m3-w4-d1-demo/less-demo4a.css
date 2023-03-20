@@ -1,0 +1,15 @@
+@media screen {
+  .myclass {
+    color: blue;
+  }
+}
+@media screen and (min-width: 980px) {
+  .myclass {
+    color: green;
+  }
+}
+@media mytext {
+  .myclass {
+    color: black;
+  }
+}

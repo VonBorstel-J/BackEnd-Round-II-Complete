@@ -1,0 +1,23 @@
+{
+  "name": "m3-w3-d3-homework",
+  "version": "1.0.0",
+  "description": "hw",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VonBorstel-J/m3-w3-d3-homework.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VonBorstel-J/m3-w3-d3-homework/issues"
+  },
+  "homepage": "https://github.com/VonBorstel-J/m3-w3-d3-homework#readme",
+  "dependencies": {
+    "node.js": "^0.0.1-security"
+  },
+  "devDependencies": {}
+}

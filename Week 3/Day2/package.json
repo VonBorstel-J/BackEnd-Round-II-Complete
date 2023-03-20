@@ -1,0 +1,35 @@
+{
+  "name": "scss-demo",
+  "version": "1.0.0",
+  "description": "This is a scss demo",
+  "main": "sass-demo1.html",
+  "scripts": {
+    "lite": "lite-server",
+    "scss": "node-sass -o css/ css/",
+    "start": "npm run watch:all",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch:scss": "onchange 'css/*.scss' -- npm run scss",
+    "watch:all": "parallelshell 'npm run watch:scss' 'npm run lite' "
+  },
+  "author": "Your Name",
+  "license": "ISC",
+  "devDependencies": {
+    "lite-server": "^2.3.0",
+    "node-sass": "^5.0.0",
+    "onchange": "^3.3.0",
+    "parallelshell": "^3.0.1"
+  },
+  "dependencies": {
+    "bootstrap": "^4.4.1",
+    "jquery": "^3.4.1",
+    "popper.js": "^1.12.9"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VonBorstel-J/m3-w3-d2-exercise.git"
+  },
+  "bugs": {
+    "url": "https://github.com/VonBorstel-J/m3-w3-d2-exercise/issues"
+  },
+  "homepage": "https://github.com/VonBorstel-J/m3-w3-d2-exercise#readme"
+}

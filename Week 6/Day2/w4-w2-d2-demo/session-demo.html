@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            function clickSessionCounter() {
+                if( typeof(Storage) !== "undefined") { // this means Storage was never created
+                    if (sessionStorage.clickcount) { // if sessionStorage exist Add 1
+                        sessionStorage.clickcount = Number(sessionStorage.clickcount)+1;
+                    } else {
+                        sessionStorage.clickcount = 1; 
+                    }
+                    document.getElementById("result").innerHTML = "You have clicked the button" + sessionStorage.clickcount + " time(s) in this session."; 
+                } else {
+                    document.getElementById("result").innerHTML =  "Sorry, your browser does not support web storage..."; 
+                }
+            }
+        </script>
+    </head>
+     
+    <body>
+        <p><button onclick="clickSessionCounter()" type="button">Click me!</button></p>
+        <div id="result"></div>
+        <p>Click the button to see the counter increase.</p>
+        <p>Close the browser tab, to reset the counter.</p>
+    </body>
+</html>

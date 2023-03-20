@@ -1,0 +1,972 @@
+body
+  font-family: Arial, Helvetica, sans-serif
+  background-color: beige
+
+*
+  box-sizing: border-box
+
+
+/*Headers 
+
+#signU 
+  font-family: Monstserrat, sans-serif
+  font: 900
+@import "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css"
+
+html
+  scroll-behavior: smooth
+  box-sizing: border-box
+
+*
+  box-sizing: inherit
+  padding: 0
+  margin: 0
+
+  &:before, &:after
+    box-sizing: inherit
+    padding: 0
+    margin: 0
+
+body
+  font-family: Arial, Helvetica, sans-serif
+  background-color: #fefae0
+  height: 100%
+  animation: fadeInAnimation ease 3s
+  animation-iteration-count: 1
+  animation-fill-mode: forwards
+
+li
+  list-style: none
+
+a
+  text-decoration: none
+
+@keyframes fadeInAnimation
+  0%
+    opacity: 0
+
+  100%
+    opacity: 1
+
+/* Grid for whole site
+
+.grid-container
+  display: grid
+  max-width: 2560px
+  margin-right: auto
+  margin-left: auto
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr))
+  grid-template-rows: repeat(10, minmax(100px, auto))
+  gap: 10px
+
+.j1
+  grid-column: 1 / 3
+  grid-row: 3 / 4
+  align-self: end
+  margin-left: 20px
+
+.j2
+  grid-column: 3 / 6
+  grid-row: 4 / 5
+  margin-top: 20px
+  margin-left: 38px
+
+#j2
+  height: auto
+  max-width: 90%
+  padding-left: 20px
+
+.img1
+  grid-column: 3 / 5
+  grid-row: 3 / 4
+  justify-self: center
+  margin-left: 12px
+
+/* Partners
+
+.square-holder
+  padding: 30px
+  border: 10px solid #784181
+  border-radius: 10px
+  align-items: center
+  display: flex
+  align-items: center
+  justify-content: center
+  margin-bottom: 20px
+  background-color: #8b8b8b00
+  min-height: 200px
+  cursor: pointer
+
+  img
+    max-width: 100%
+    filter: grayscale(100%)
+    transition: all 0.3s
+
+  &:hover img
+    filter: none
+
+#partners
+  grid-column: 1 /6
+  grid-row: 6 / 9
+
+#partnersTitle
+  justify-content: center
+
+/*footer
+
+footer
+  margin-top: 60px
+  width: 100%
+  background-color: #dda15e !important
+
+.container
+  color: black
+
+/*Headers
+
+#signU
+  font-family: Monstserrat, sans-serif !important
+  font: 900
+
+.logo
+  border: 10% solid transparent
+
+@keyframes slideInFromLeft
+  0%
+    transform: translateX(-100%)
+
+  100%
+    transform: translateX(0)
+
+header
+  /* This section calls the slideInFromLeft animation we defined above
+  animation: 2s ease-out 0s 1 slideInFromLeft
+
+/*-------------------------------------------------------------------------------------------------------------------------------------------
+
+/* Styling for all images
+
+img
+  max-width: 100%
+  max-height: 100%
+
+#shoppingcart
+  max-width: 90%
+  height: auto
+
+picture
+  grid-column: 1 / 3
+  grid-row: 4 / 6
+  justify-self: center
+
+/*input css
+/* Full-width input fields
+
+input
+  &[type=text], &[type=password]
+    width: 100%
+    padding: 15px
+    margin: 5px 0 22px 0
+    display: inline-block
+    border: none
+    background: #f1f1f1
+
+  &[type=text]:focus, &[type=password]:focus
+    background-color: #ddd
+    outline: none
+
+/* Add a background color when the inputs get focus
+/* Set a style for all buttons
+
+button
+  display: inline-block
+  background-color: #04AA6D
+  color: white
+  padding: 14px 50px
+  margin: 8px 0
+  border: none
+  cursor: pointer
+  width: 100%
+
+  &:hover
+    opacity: 1
+
+/* Extra styles for the cancel button
+
+.cancelbtn
+  padding: 14px 20px
+  background-color: #f44336
+  float: left
+  width: 50%
+
+/* Float cancel and signup buttons and add an equal width
+
+.signupbtn
+  float: left
+  width: 50%
+
+/* Add padding to container elements
+
+.container
+  padding: 16px
+
+/* The Modal (background)
+
+.modal
+  display: none
+
+  /* Hidden by default
+  position: fixed
+
+  /* Stay in place
+  z-index: 1
+
+  /* Sit on top
+  left: 0
+  top: 0
+  width: 100%
+
+  /* Full width
+  height: 100%
+
+  /* Full height
+  overflow: auto
+
+  /* Enable scroll if needed
+  background-color: #474e5d
+  padding-top: 100px
+
+/* Modal Content/Box
+
+.modal-content
+  background-color: #fefefe
+  margin: 5% auto 15% auto
+
+  /* 5% from the top, 15% from the bottom and centered
+  border: 1px solid #888
+  width: 80%
+
+  /* Could be more or less, depending on screen size
+
+/* Style the horizontal ruler
+
+hr
+  border: 1px solid #f1f1f1
+  margin-bottom: 25px
+
+/* The Close Button (x)
+
+.close
+  position: absolute
+  right: 35px
+  top: 15px
+  font-size: 40px
+  font-weight: bold
+  color: #f1f1f1
+
+  &:hover, &:focus
+    color: #f44336
+    cursor: pointer
+
+/* Clear floats
+
+.clearfix::after
+  content: ""
+  clear: both
+  display: table
+
+/* Change styles for cancel button and signup button on extra small screens
+@media screen and (max-width: 300px)
+  .cancelbtn, .signupbtn
+    width: 100%
+
+/*------------Login Styling ------------------------------------------------------
+/* Bordered form
+
+form
+  border: 3px solid #f1f1f1
+
+/* Full-width inputs
+
+input .login
+  &[type=text], &[type=password]
+    width: 100%
+    padding: 12px 20px
+    margin: 8px 0
+    display: inline-block
+    border: 1px solid #ccc
+    box-sizing: border-box
+
+/* Center the image and position the close button
+/* Center the image and position the close button
+
+.imgcontainer
+  text-align: center
+  margin: 100px 0 12px 0
+  position: relative
+
+img.avatar
+  width: 50%
+  border-radius: 100%
+
+.container
+  padding: 16px
+
+span.psw
+  float: right
+  padding-top: 15px
+
+/* Add Zoom Animation
+
+.animate
+  -webkit-animation: animatezoom 0.6s
+  animation: animatezoom 0.6s
+
+@-webkit-keyframes animatezoom
+  from
+    -webkit-transform: scale(0)
+
+  to
+    -webkit-transform: scale(1)
+
+@keyframes animatezoom
+  from
+    transform: scale(0)
+
+  to
+    transform: scale(1)
+
+/* Change styles for span and cancel button on extra small screens
+@media screen and (max-width: 300px)
+  span.psw
+    display: block
+    float: none
+
+  .cancelbtn
+    width: 100%
+
+/* Site Wide Media Queries
+
+/* Extra large devices (large laptops and desktops, 1200px and up)
+
+/* 
+ *@media screen and (min-width: 1200px)  {
+ *
+ *  .navbar {   
+ *    width: 100%;
+ *    max-width: none;
+ *    min-width: 1200px;
+ *  }
+ *
+ *  .nav-links { 
+ *    width: fit-content;
+ *    justify-content: end; 
+ *    min-width: 1200px;    
+ *  }
+ *
+ *
+ *  .shippingBannerP { 
+ *    width: auto!important;
+ *    max-width:none;
+ *    grid-column-end: auto!important0; 
+ *  }
+ *
+ *  .footer { 
+ *    max-width: none;
+ *    min-width: 1200px; 
+ *  }
+ *
+ *  .row { 
+ *    display: flex;
+ *    flex-wrap: wrap;
+ *    align-items: center;
+ *  } 
+ *
+ *}
+
+@media only screen and (min-width: 1440px)
+  .navbar
+    min-width: 992px
+
+    >
+      .container, .container-fluid
+        display: flex
+        flex-wrap: nowrap
+
+  .nav-links
+    margin-left: 45%
+
+  .shippingBannerP, .footer
+    min-width: 992px
+
+  .row
+    display: flex
+    flex-wrap: wrap
+    align-items: center
+
+  .j1
+    padding: 1rem
+    grid-column: 1
+    grid-row: 3 / 4
+    align-self: start
+    margin: auto
+
+  .img1
+    grid-column: 2
+    grid-row: 3 / 6
+    align-self: start
+    margin-left: 0px
+
+  #shoppingC
+    width: 1000px
+    height: 900px
+
+  .j2
+    padding: 1rem
+    grid-column: 2
+    grid-row: 6 / 8
+    margin-right: 40px
+
+  #j2
+    max-width: max-content
+    padding: 0
+
+  .container-fluid
+    padding-bottom: 40px
+
+  #logoPNG
+    padding: 1rem
+    grid-column: 1
+    grid-row: 4 / 8
+    align-self: start
+
+  #imgLogoPNG
+    width: 900px !important
+    height: 700px
+
+  #partners
+    grid-column: 1 / 3
+    grid-row: 8 / 9
+
+@media only screen and (min-width: 1024px) and (max-width: 1440px)
+  .navbar >
+    .container, .container-fluid
+      display: flex
+      flex-wrap: nowrap
+
+  .row
+    display: flex
+    flex-wrap: wrap
+    align-items: center
+
+  .j1
+    padding: 1rem
+    grid-column: 1
+    grid-row: 3 / 4
+    align-self: start
+    margin: auto
+
+  .img1
+    grid-column: 2
+    grid-row: 3 / 4
+    align-self: end
+    margin-left: 0px
+
+  #shoppingC
+    width: 1000px
+    height: 800px
+
+  .j2
+    padding: 1rem
+    grid-column: 2
+    grid-row: 4 / 8
+    align-self: end
+    margin-right: 35px
+    margin-left: 0
+
+  #j2
+    max-width: max-content
+    padding: 0
+
+  .container-fluid
+    padding-bottom: 40px
+    padding-left: 33px
+
+  #logoPNG
+    padding: 1rem
+    grid-column: 1
+    grid-row: 4 / 8
+    align-self: start
+
+  #imgLogoPNG
+    width: 1000px !important
+    height: 551px
+
+  #partners
+    grid-column: 1 / 3
+    grid-row: 8 / 9
+
+@media only screen and (min-width: 992px) and (max-width: 1024)
+  .navbar
+    min-width: 992px
+
+    >
+      .container, .container-fluid
+        display: flex
+        flex-wrap: nowrap
+
+  .nav-links
+    margin-left: 45%
+
+  .shippingBannerP, .footer
+    min-width: 992px
+
+  .row
+    display: flex
+    flex-wrap: wrap
+    align-items: center
+
+  .j1
+    padding: 1rem
+    grid-column: 1
+    grid-row: 3 / 5
+    align-self: start
+    margin: auto
+
+  .img1
+    grid-column: 1
+    grid-row: 5 / 7
+    align-self: end
+    margin-left: 0px
+
+  #shoppingC
+    width: 1000px
+    height: 900px
+
+  .j2
+    padding: 1rem
+    grid-column: 2
+    grid-row: 4 / 8
+    align-self: end
+    margin-right: 35px
+    margin-left: 0
+
+  #j2
+    max-width: max-content
+    padding: 0
+
+  .container-fluid
+    padding-bottom: 40px
+    padding-left: 33px
+
+  #logoPNG
+    padding: 1rem
+    grid-column: 1
+    grid-row: 4 / 8
+    align-self: start
+
+  #imgLogoPNG
+    width: 1000px !important
+    height: 551px
+
+  #partners
+    grid-column: 1 / 3
+    grid-row: 8 / 9
+
+@media screen and (min-width: 768px) and (max-width: 992px)
+  .navbar
+    width: 100%
+    max-width: 992px
+    min-width: 768px
+
+  .nav-links
+    max-width: 992px
+    min-width: 768px
+
+  .shippingBannerP
+    max-width: 992px
+
+  .footer
+    max-width: 992px
+    min-width: 768px
+    margin-top: 0px
+
+  .row
+    display: flex
+    flex-wrap: wrap
+    align-items: center
+
+  .j1
+    padding: 1rem
+    grid-column: 1 / 3
+    grid-row: 3
+    align-self: start
+    margin: auto
+
+  .img1
+    grid-column: 1 / 3
+    grid-row: 4
+    align-self: end
+    margin-left: 0px
+
+  #shoppingC
+    width: 1000px
+    height: 900px
+
+  .j2
+    padding: 1rem
+    grid-column: 1 / 3
+    grid-row: 5
+    align-self: end
+    margin-right: 35px
+    margin-left: 28px
+
+  #j2
+    max-width: max-content
+    padding: 0
+
+  .container-fluid
+    padding-bottom: 40px
+    padding-left: 33px
+
+  #logoPNG
+    padding: 1rem
+    grid-column: 1 / 3
+    grid-row: 6
+    align-self: start
+
+  #imgLogoPNG
+    width: 1000px !important
+    height: 551px
+
+  #partners
+    grid-column: 1 / 3
+    grid-row: 7
+
+@media screen and (min-width: 375px) and (max-width: 767px)
+  .navbar, .shippingBannerP
+    width: 100%
+
+  #shippingBannerC
+    margin-left: 0 !important
+    padding-left: 14%
+
+  .containerF
+    display: flex
+    align-items: center
+    justify-content: center
+    flex-direction: column
+    text-align: center
+
+  .row
+    display: flex
+    flex-wrap: nowrap
+    flex-direction: column
+
+  .navbar
+    margin-bottom: 0px
+
+  .grid-container
+    grid-template-columns: min-content
+    grid-template-rows: repeat(8, minmax(300px, auto))
+    gap: 0
+
+  .j1
+    padding: 1rem
+    grid-column: 1 / 3
+    grid-row: 2 / 4
+    margin: auto
+
+  .img1
+    grid-column: 1 / 3
+    grid-row: 4 / 5
+    align-self: start
+    margin-left: 0px
+
+  .j2
+    padding: 1rem
+    grid-column: 1 / 3
+    grid-row: 5 / 7
+    align-self: start
+    margin: 0
+
+  #j2
+    max-width: fit-content
+    padding: 0
+
+  .container-fluid
+    padding-bottom: 40px
+
+  #logoPNG
+    padding: 1rem
+    grid-column: 1 / 3
+    grid-row: 7 / 8
+    align-self: end
+    margin: auto
+
+  #partners
+    grid-column: 1 / 3
+    grid-row: 8 / 9
+
+@media screen and (max-width: 320px)
+  .navbar, .shippingBannerP
+    width: 100%
+
+    /* min-width: px;
+
+  #shippingBannerC
+    margin-left: 0 !important
+    padding-left: 8%
+
+  .containerF
+    display: flex
+    align-items: center
+    justify-content: center
+    flex-direction: column
+    text-align: center
+
+  .row
+    display: flex
+    flex-wrap: nowrap
+    flex-direction: column
+
+  .navbar
+    margin-bottom: 100px
+
+  .grid-container
+    grid-template-columns: min-content
+    grid-template-rows: repeat(8, minmax(300px, auto))
+    gap: 0
+
+  .j1
+    padding: 1rem
+    grid-column: 1 / 1
+    grid-row: 2 / 4
+    align-self: start
+    margin: auto
+
+  .img1
+    grid-column: 1 / 1
+    grid-row: 4 / 6
+    align-self: start
+    margin-left: 0px
+
+  .j2
+    padding: 1rem
+    grid-column: 1 / 1
+    grid-row: 5 / 7
+    align-self: end
+    margin: auto
+
+  #j2
+    max-width: fit-content
+    padding: 0
+
+  .container-fluid
+    padding-bottom: 40px
+
+  #logoPNG 
+    padding: 1rem
+    grid-column: 1 / 1
+    grid-row: 7 / 8
+    align-self: end
+    margin: auto
+
+  #partners
+    grid-column: 1 / 1
+    grid-row: 8 / 9
+.title 
+  position: absolute
+  right: 85%
+  bottom: 70%
+
+
+/* Full-width input fields
+
+input
+  &[type=text], &[type=password]
+    width: 100%
+    padding: 15px
+    margin: 5px 0 22px 0
+    display: inline-block
+    border: none
+    background: #f1f1f1
+
+  &[type=text]:focus, &[type=password]:focus
+    background-color: #ddd
+    outline: none
+
+/* Add a background color when the inputs get focus
+/* Set a style for all buttons
+
+container
+  position: absolute
+  right: 85%
+  bottom: 60%
+
+button
+  display: inline-block
+  background-color: #04AA6D
+  color: white
+  padding: 14px 50px
+  margin: 8px 0
+  border: none
+  cursor: pointer
+  width: 100%
+
+  &:hover
+    opacity: 1
+
+/* Extra styles for the cancel button
+
+.cancelbtn
+  padding: 14px 20px
+  background-color: #f44336
+  float: left
+  width: 50%
+
+/* Float cancel and signup buttons and add an equal width
+
+.signupbtn
+  float: left
+  width: 50%
+
+/* Add padding to container elements
+
+.container
+  padding: 16px
+
+/* The Modal (background)
+
+.modal
+  display: none
+
+  /* Hidden by default
+  position: fixed
+
+  /* Stay in place
+  z-index: 1
+
+  /* Sit on top
+  left: 0
+  top: 0
+  width: 100%
+
+  /* Full width
+  height: 100%
+
+  /* Full height
+  overflow: auto
+
+  /* Enable scroll if needed
+  background-color: #474e5d
+  padding-top: 50px
+
+/* Modal Content/Box
+
+.modal-content
+  background-color: #fefefe
+  margin: 5% auto 15% auto
+
+  /* 5% from the top, 15% from the bottom and centered
+  border: 1px solid #888
+  width: 80%
+
+  /* Could be more or less, depending on screen size
+
+/* Style the horizontal ruler
+
+hr
+  border: 1px solid #f1f1f1
+  margin-bottom: 25px
+
+/* The Close Button (x)
+
+.close
+  position: absolute
+  right: 35px
+  top: 15px
+  font-size: 40px
+  font-weight: bold
+  color: #f1f1f1
+
+  &:hover, &:focus
+    color: #f44336
+    cursor: pointer
+
+/* Clear floats
+
+.clearfix::after
+  content: ""
+  clear: both
+  display: table
+
+/* Change styles for cancel button and signup button on extra small screens
+@media screen and (max-width: 300px)
+  .cancelbtn, .signupbtn
+    width: 100%
+
+/*------------Login Styling ------------------------------------------------------
+/* Bordered form
+
+form
+  border: 3px solid #f1f1f1
+
+/* Full-width inputs
+
+input .login
+  &[type=text], &[type=password]
+    width: 100%
+    padding: 12px 20px
+    margin: 8px 0
+    display: inline-block
+    border: 1px solid #ccc
+    box-sizing: border-box
+
+/* Center the image and position the close button
+/* Center the image and position the close button
+
+.imgcontainer
+  text-align: center
+  margin: 100px 0 12px 0
+  position: relative
+
+img.avatar
+  width: 50%
+  border-radius: 100%
+
+.container
+  padding: 16px
+
+span.psw
+  float: right
+  padding-top: 15px
+
+/* Add Zoom Animation
+
+.animate
+  -webkit-animation: animatezoom 0.6s
+  animation: animatezoom 0.6s
+
+@-webkit-keyframes animatezoom
+  from
+    -webkit-transform: scale(0)
+
+  to
+    -webkit-transform: scale(1)
+
+@keyframes animatezoom
+  from
+    transform: scale(0)
+
+  to
+    transform: scale(1)
+
+/* Change styles for span and cancel button on extra small screens
+@media screen and (max-width: 300px)
+  span.psw
+    display: block
+    float: none
+
+  .cancelbtn
+    width: 100%

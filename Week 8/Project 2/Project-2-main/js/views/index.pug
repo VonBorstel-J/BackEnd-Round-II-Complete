@@ -1,0 +1,204 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  meta(name='viewport' content='width=device-width, initial-scale=1, minimum-scale=1')
+  link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC' crossorigin='anonymous')
+  link(rel='stylesheet' href='/MBD/css/mdb.min.css')
+  link(rel='stylesheet' href='/public/css/home_page.css')
+  link(rel='stylesheet' href='/public/css/scroll_nav.css')
+  link(rel='stylesheet' href='/public/css/products_page.css')
+  link(rel='stylesheet' href='https://www.w3schools.com/w3css/4/w3.css')
+  link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
+  link(href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet')
+  title Home
+  link(rel='shortcut icon' href='/public/img/favicon.ico' type='image/x-icon')
+  link(rel='icon' href='/public/img/favicon.ico' type='image/x-icon')
+// Main Navigation
+header
+  #navBar.navbar
+    .shippingBannerP
+      p#shippingBannerC Free Shipping on orders over 100$
+    // <div class="navbar-grid">
+    nav#myTopnav.topnav.container.navFlex
+      a.GIGA(href='#')
+        img.rounded-circle.z-depth-6(src='/public/img/img_avatar.png' alt='Avatar Logo' style='width: 50px;height: 50px;')
+        |  GIGACOMMERCE
+      ul.nav-links
+        li.nav-item
+          a.nav-link(aria-current='page' href='/public/html/index.html') Home
+        li.nav-item
+          a.nav-link(href='/public/html/Product.html' rel='nofollow' target='_blank') Products
+        li.nav-item
+          a.nav-link(href='/public/html/Contact.html') Contact Us
+      #hamburger.hamburger
+        span.bar
+        span.bar
+        span.bar
+div
+  .grid-container
+    #j1.j1
+      .jumbotron.jumbotron-fluid.bg-dark.text-white(style='border-radius: 10px;  background-color: #0d0d0d!important;')
+        .container-fluid
+          h1#signU.display-3 Sign up/Sign In
+          p.lead
+            | Lorem, ipsum dolor sit amet consectetur adipisicing elit. Enim aspernatur ad odio harum, id, reprehenderit similique ipsum maiores inventore tempora adipisci soluta, nemo accusamus est natus! Velit sit magni est.
+          hr.my-4
+          p
+            | Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio ut natus at, veniam doloribus animi aliquid. Consectetur quas autem nulla dolore accusantium maiores at dicta quos eaque nemo, voluptate in. eniam doloribus animi aliquid. Consectetur quas autem nulla dolore accusantium maiores at dicta quos eaque nemo, voluptate in.
+          p.lead
+          // -Modal for btn 1
+          #btn1
+            button.btn.btn-primary.btn-lg.mr-4(onclick="document.getElementById('id01').style.display='block'" style='width:auto;') Sign Up
+            #id01.modal(tabindex='-1')
+              span.close(onclick="document.getElementById('id01').style.display='none'" title='Close Modal') &times;
+              form.modal-content.animate(action='/action_page.php')
+                .container
+                  h1(style='color:black;') Sign Up
+                  p(style='color:black;') Please fill in this form to create an account.
+                  hr
+                  label(for='email')
+                    b Email
+                  input(type='text' placeholder='Enter Email' name='email' required='')
+                  label(for='psw')
+                    b Password
+                  input(type='password' placeholder='Enter Password' name='psw' required='')
+                  label(for='psw-repeat')
+                    b Repeat Password
+                  input(type='password' placeholder='Repeat Password' name='psw-repeat' required='')
+                  label(style='color: black ;')
+                    input(type='checkbox' checked='checked' name='remember' style='margin-bottom:15px;')
+                    |  Remember me
+                  p(style='color: black ;')
+                    | By creating an account you agree to our 
+                    a(href='#' style='color:dodgerblue') Terms &amp; Privacy
+                    | .
+                  .clearfix(style='width: 100%!important')
+                    button.cancelbtn(type='button' onclick="document.getElementById('id01').style.display='none'") Cancel
+                    button.signupbtn(type='submit') Sign Up
+            // ----Modal for btn2 --------
+            button.btn.btn-primary.btn-lg(onclick="document.getElementById('id02').style.display='block'" style='width:auto;') Login
+            #id02.modal(tabindex='-1')
+              span.close(onclick="document.getElementById('id02').style.display='none'" title='Close Modal') &times;
+              form.modal-content.animate(action='/action_page.php' method='post')
+                .imgcontainer
+                  img.avatar.img-responsive(src='/public/img/img_avatar.png' alt='Avatar' style='max-height:500px; max-width: 400px;')
+                .container
+                  label(for='uname')
+                    b Username
+                  input.login(type='text' placeholder='Enter Username' name='uname' required='')
+                  label(for='psw')
+                    b Password
+                  input.login(type='password' placeholder='Enter Password' name='psw' required='')
+                  button(type='submit') Login
+                  label(style='color: black ;')
+                    input(type='checkbox' checked='checked' name='remember')
+                    |  Remember me
+                .container(style='background-color:#f1f1f1')
+                  button.cancelbtn(type='button' onclick="document.getElementById('id02').style.display='none'") Cancel
+                  span.psw
+                    a(href='#') Forgot password?
+    // image for jumbotron
+    #shoppingcart.img1
+      img#shoppingC.img-responsive(src='/public/img/Shopping-cart.jpg' style='border-radius: 10px;')
+    section#jumbo2.j2
+      #j2.jumbotron.jumbotron-fluid.bg-dark.text-white(style='border-radius: 10px; background-color: #0d0d0d!important;')
+        .container-fluid
+          h1#signU.display-1 Lorem Ipsum
+          p.lead
+            | Lorem, eniam doloribus animi aliquid. Consectetur quas autem nulla dolore accusantium maiores at dicta quos eaque nemo, voluptate in. ipsum dolor sit amet consectetur adipisicing elit. Enim aspernatur ad odio harum, id, reprehenderit similique ipsum maiores inventore tempora adipisci soluta, nemo accusamus est natus! Velit sit magni est.
+          hr.my-3
+          a(href='url' style='font-size:25px;') Learn More
+          i.fa-solid.fa-arrow-right.fa-lg(style='padding-left: 10px ;')
+    picture#logoPNG
+      img#imgLogoPNG.rounded.img-fluid.mx-auto(src='/public/img/logo.png')
+    section#partners.section.section-default.mt-none.mb-none
+      .container
+        h2#partnersTitle Partners
+        strong
+          .row
+            .col-sm-6.col-md-4.col-lg-3
+              .square-holder
+                img(href='#' src='https://www.pmits.co.uk/portals/0/images/partners/solar-communications-200.png')
+            .col-sm-6.col-md-4.col-lg-3
+              .square-holder
+                img(href='#' src='https://www.pmits.co.uk/portals/0/images/partners/cbf-200.png')
+            .col-sm-6.col-md-4.col-lg-3
+              .square-holder
+                img(href='#' src='https://www.pmits.co.uk/portals/0/images/partners/gxs-200.png')
+            .col-sm-6.col-md-4.col-lg-3
+              .square-holder
+                img(href='#' src='https://www.pmits.co.uk/portals/0/images/partners/jpr-200.png')
+            .col-sm-6.col-md-4.col-lg-3
+              .square-holder
+                img(src='https://www.pmits.co.uk/portals/0/images/partners/talk-internet-200.png')
+            .col-sm-6.col-md-4.col-lg-3
+              .square-holder
+                img(href='#' src='https://www.pmits.co.uk/Portals/0/img/opera3_logo.png')
+            .col-sm-6.col-md-4.col-lg-3
+              .square-holder
+                img(href='#' src='https://www.pmits.co.uk/Portals/0/pegasus-logo.png')
+            .col-sm-6.col-md-4.col-lg-3
+              .square-holder
+                img(href='#' src='https://www.pmits.co.uk/Portals/0/sage business partner.jpg')
+  footer.footer
+    .containerF.w3-container.py-5
+      .row.py-4
+        .col-lg-4.col-md-6.mb-4.mb-lg-0
+          p.font-italic
+            | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.
+          ul.list-inline.mt-4
+            li.list-inline-item
+              a(href='#' target='_blank' title='twitter')
+                i.fa.fa-twitter
+            li.list-inline-item
+              a(href='#' target='_blank' title='facebook')
+                i.fa.fa-facebook
+            li.list-inline-item
+              a(href='#' target='_blank' title='instagram')
+                i.fa.fa-instagram
+            li.list-inline-item
+              a(href='#' target='_blank' title='pinterest')
+                i.fa.fa-pinterest
+            li.list-inline-item
+              a(href='#' target='_blank' title='vimeo')
+                i.fa.fa-vimeo
+        .col-lg-2.col-md-6.mb-4.mb-lg-0
+          h6.text-uppercase.font-weight-bold.mb-4 Shop
+          ul.list-unstyled.mb-0
+            li.mb-2
+              a(href='#') Cool Stuff
+            li.mb-2
+              a(href='#') Cooler Stuff
+            li.mb-2
+              a(href='#') Coolish Stuff
+            li.mb-2
+              a(href='#') The Coolest Stuff
+        .col-lg-2.col-md-6.mb-4.mb-lg-0
+          h6.text-uppercase.font-weight-bold.mb-4 Company
+          ul.list-unstyled.mb-0
+            li.mb-2
+              a(href='#') Login
+            li.mb-2
+              a(href='#') Register
+            li.mb-2
+              a(href='#') Wishlist
+            li.mb-2
+              a(href='#') Our Products
+        .col-lg-4.col-md-6.mb-lg-0
+          h6.text-uppercase.font-weight-bold.mb-4 Newsletter
+          p.mb-4 Lorem ipsum dolor sit amet, consectetur adipisicing elit. At itaque temporibus.
+          .p-1.rounded.border
+            .input-group
+              input.form-control.border-0.shadow-0(type='email' placeholder='Enter your email address' aria-describedby='button-addon1')
+              .input-group-append
+                button#button-addon1.btn.btn-link(type='submit' style='color:dodgerblue;')
+                  i.fa.fa-paper-plane(style='float:right;')
+    // Copyrights
+    .bg-light
+      .container.text-center
+        p.mb-0.py-2 &copy; This site is for display purposes only*****
+  script(src='/js/signInModal.js')
+  script(src='/js/scroll_nav.js')
+  script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js')
+  script(src='https://cdn.jsdelivr.net/npm/vue@2.7.8/dist/vue.js')

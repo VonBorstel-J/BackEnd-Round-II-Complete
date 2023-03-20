@@ -1,0 +1,63 @@
+@media (max-width: 575px) {
+    .seemore_bt {
+        width: 35%; 
+    }
+    .seemore { 
+        width: 40%; 
+    }
+    .sale_text {
+        font-size: 2.5em;
+    }
+    .racing_shoes{
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+    .seemore_bt { 
+        width: 35%; 
+    }
+    .seemore { 
+        width: 40%; 
+    }
+    .sale_text { 
+        font-size: 2.5em;
+    }
+    .racing_shoes{
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+ 
+    .seemore_bt {
+        width: 45%; 
+    }
+    .seemore { 
+        width: 80%; 
+    }
+    .sale_text { 
+        font-size: 2.5em;
+    }
+    .racing_shoes{
+        padding-right: 50px;
+    }
+
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    .seemore_bt {
+        width: 45%; 
+    }
+    .seemore { 
+        width: 80%; 
+    }
+    .sale_text { 
+        font-size: 2.5em;
+    }
+    .racing_shoes{
+        padding-right: 50px;
+    }
+}

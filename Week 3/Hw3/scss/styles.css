@@ -1,0 +1,114 @@
+/* Variables */ /* Nest Nav */
+@import url("https://fonts.googleapis.com/css2?family=Sacramento&display=swap");
+nav ul {
+  margin: 0;
+  padding-top: 0px;
+  list-style: none;
+}
+nav li {
+  display: inline-block;
+}
+nav a {
+  display: block;
+  padding: 6px 12px;
+  text-decoration: none;
+  font-size: 25px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Nesting Body */
+body {
+  background-color: rgb(218, 170, 14);
+  position: relative;
+}
+body header {
+  position: relative;
+  top: 40px;
+  left: 150px;
+}
+body main {
+  width: 95%;
+  min-height: 877px;
+  margin-top: 100px;
+  margin-left: 70px;
+  background-color: rgb(255, 255, 255);
+  -moz-column-count: 2;
+       column-count: 2;
+  -moz-column-gap: 0;
+       column-gap: 0;
+  text-align: center;
+}
+body main p {
+  color: rgb(49, 49, 48);
+  font-family: Arial;
+  font-size: 25px;
+  font-weight: bold;
+  position: relative;
+  top: 120px;
+  right: 50px;
+}
+body main h3 {
+  color: rgb(49, 49, 48);
+  font-family: Arial;
+  font-size: 45px;
+  font-weight: bold;
+  position: relative;
+  top: 110px;
+  right: 50px;
+}
+body main span {
+  color: rgb(49, 49, 48);
+  font-size: 55px;
+  font-family: sacramento, cursive;
+  font-weight: bold;
+  position: relative;
+  top: 100px;
+  right: 50px;
+}
+body main button {
+  position: relative;
+  top: 150px;
+  right: 50px;
+  background: #f1c40f;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+}
+body main button:hover {
+  background: #cba50c;
+  transition: all 0.3s ease;
+}
+body main button:active {
+  background: #796307;
+}
+body main #intro-text {
+  color: rgba(212, 213, 216, 0.748);
+  background-color: rgba(212, 213, 216, 0.748);
+  height: 770px;
+  width: 1000px;
+  position: relative;
+  top: 50px;
+  left: 30px;
+  z-index: 1;
+}
+body main #intro-image {
+  height: auto;
+  z-index: 10;
+  position: relative;
+  right: 50px;
+  left: -200px;
+}
+body main img {
+  margin-top: 50px;
+  height: 770px;
+  width: 1300px;
+}
+body main footer {
+  font-size: larger;
+  font-family: Arial;
+}/*# sourceMappingURL=styles.css.map */

@@ -1,0 +1,22 @@
+{
+  "name": "mongodb_demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VonBorstel-J/m3-w2-d1-exercise.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VonBorstel-J/m3-w2-d1-exercise/issues"
+  },
+  "homepage": "https://github.com/VonBorstel-J/m3-w2-d1-exercise#readme",
+  "dependencies": {
+    "mongodb": "^4.7.0"
+  }
+}

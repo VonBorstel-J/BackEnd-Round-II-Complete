@@ -1,0 +1,22 @@
+/* Nest Nav */
+nav {
+  background-color: #daaa0e;
+}
+
+nav ul {
+  list-style-type: none;
+  height: 2em;
+}
+
+nav li {
+  display: inline-block;
+  color: white;
+  text-align: right;
+  padding-left: 0.5em;
+}
+
+nav li a {
+  text-decoration: none;
+  color: white;
+}
+/*# sourceMappingURL=nav.css.map */

@@ -1,0 +1,93 @@
+/* Variables */
+/* Nest Nav */
+nav {
+  background-color: #daaa0e;
+}
+
+nav ul {
+  list-style-type: none;
+  height: 2em;
+}
+
+nav li {
+  display: inline-block;
+  color: white;
+  text-align: right;
+  padding-left: 0.5em;
+}
+
+nav li a {
+  text-decoration: none;
+  color: white;
+}
+
+/* Nest Main */
+body {
+  background-color: #daaa0e;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: center;
+  background-color: white;
+  padding: 2em;
+  margin: 2em 1em;
+}
+
+body main #intro-text {
+  text-align: center;
+  padding: 5em 0;
+  background-color: #d4d5d8;
+  border-color: white;
+  border: 1em;
+  width: 50%;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+body main #intro-text span {
+  font-family: "Sacramento", cursive;
+  color: #313130;
+  font-size: 20px;
+}
+
+body main #intro-text h3 {
+  font-weight: bolder;
+  font-size: 16px;
+  color: #313130;
+  text-align: center;
+}
+
+body main #intro-text p {
+  font-size: 15px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #313130;
+}
+
+body main #intro-text button {
+  background-color: #daaa0e;
+  color: white;
+  border: none;
+  padding: 1em 1em;
+}
+
+body main #intro-image {
+  width: 50%;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+body main #intro-image img {
+  width: 100%;
+  height: auto;
+}
+
+body footer {
+  margin: 1em 2em;
+  padding-right: 4em;
+}

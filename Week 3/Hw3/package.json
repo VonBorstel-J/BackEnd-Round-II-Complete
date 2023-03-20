@@ -1,23 +1,26 @@
 {
-  "name": "m3-w3-d3-homework",
+  "name": "m3-wk3-day3-homework",
   "version": "1.0.0",
-  "description": "hw",
+  "description": "\"m3-wk3-d3-homework\"",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "scss": "node-sass -watch scss -o css",
+    "lite": "lite-server",
+    "start": "npm run lite"
+    
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/VonBorstel-J/m3-w3-d3-homework.git"
-  },
-  "author": "",
+  "author": "VonBorstel",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/VonBorstel-J/m3-w3-d3-homework/issues"
+  "devDependencies": {
+    "lite-server": "^2.6.1",
+    "node": "^17.7.1",
+    "node-sass": "^7.0.1",
+    "onchange": "^7.1.0",
+    "parallelshell": "^3.0.2",
+    "sass": "^1.49.9"
   },
-  "homepage": "https://github.com/VonBorstel-J/m3-w3-d3-homework#readme",
   "dependencies": {
-    "node.js": "^0.0.1-security"
-  },
-  "devDependencies": {}
+    "bootstrap": "^5.1.3"
+  }
 }

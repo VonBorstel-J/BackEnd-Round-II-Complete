@@ -1,0 +1,81 @@
+//In file Variables
+@r: 0;
+@g: 0;
+@b: 0;
+@my-bg-color: #fff;
+@my-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+@my-primary-color: #000000;
+@my-font-size: 16px;
+@my-border-radius: 4px;
+
+
+// Importing Variables 
+@import 'variables.less';
+
+//Mixin
+.my-mixin(@p: 0, @m: 0, @b: 0) {
+    padding: @p;
+    margin: @m;
+    border: @b;
+}
+
+// Using @extend
+.globalstyle {
+    font-family: @my-custom-font; //Import Example
+    font-size: @my-font-size; //Variable Example
+    line-height: 1.5;
+}
+
+html, body {
+    &:extend(.globalstyle);
+    background-color: @my-bg-color; //Variable example
+}
+
+// Using nesting
+.card {
+    .card-info {
+        list-style-type: none;
+        .my-mixin(0, 0, 1px solid rgb(175, 174, 174)); //Mixin Example
+        text-align: center;
+        li {
+            .my-mixin(8px 16px, 0, 1px solid #ddd); //Mixin Example
+            &:last-child {
+                border-bottom: none;
+            }
+        }
+        .card-item {
+            padding-top: 16px !important;
+            padding-bottom: 16px !important;
+            span {
+                font-weight: bold;
+            }
+            .card-wide {
+                letter-spacing: 4px;
+            }
+            .card-opacity {
+                opacity: 0.60;
+            }
+        }
+        .card-btn {
+            color: #00c303cf !important;
+            background-color: #f1f1f1 !important;
+            padding-top: 24px !important;
+            padding-bottom: 24px !important;
+            .button {
+                color: #fff !important;
+                background-color: rgb(0, 233, 0) !important; //Variable Example
+                padding: 12px 24px !important;
+            }
+        }
+    }
+    .card-shadow:hover {
+        box-shadow: @my-shadow, 0 4px 20px 0 rgba(@r, @g, @b, 0.19);
+    }
+    .card-header {
+        color: @my-custom-color; //Import example
+        background-color: @my-primary-color; //Variable example 
+        font-size: 24px !important;
+        padding-top: 32px !important;
+        padding-bottom: 32px !important;
+    }
+}

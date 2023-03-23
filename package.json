@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/VonBorstel-J/BackEnd-Round-II-Complete/issues"
   },
-  "homepage": "https://github.com/VonBorstel-J/BackEnd-Round-II-Complete#readme"
+  "homepage": "https://github.com/VonBorstel-J/BackEnd-Round-II-Complete#readme",
+  "dependencies": {
+    "https": "^1.0.0"
+  }
 }

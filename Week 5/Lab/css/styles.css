@@ -1,0 +1,74 @@
+@import url(https://fonts.googleapis.com/css?family=Bitter:400,400italic,700);
+/*---------
+rgb(255,255,255)
+rgb(0,0,0)
+rgba(0,0,0,0.5)
+rgba(0,0,0,0.24)
+rgb(22, 34, 42)
+rgb(58, 96, 115)
+
+
+//Fonts:
+Bitter
+FontAwesome
+
+----------*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Bitter";
+}
+
+.header {
+  background: rgb(58, 96, 115);
+  background: linear-gradient(
+    90deg,
+    rgb(58, 96, 115) 16%,
+    rgb(22, 34, 42) 100%
+  );
+  text-align: center;
+  height: 150px;
+}
+
+.header h1 {
+  padding-top: 50px;
+  color: #fff;
+  font-size: large;
+}
+
+img {
+  width: 150px;
+  height: 150px;
+}
+
+#vue h3 {
+  text-align: center;
+  margin-top: 5px;
+}
+
+#images {
+  width: 800px;
+  margin: auto;
+  text-align: center;
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  margin-top: 5px;
+}
+#images .catalog {
+  text-align: center;
+  margin: 0.5em 0.5em 0.5em 0.5em;
+}
+#images .desc {
+  font-weight: bold;
+  text-align: center;
+}
+#images .leg {
+  text-align: center;
+  font-size: small;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+#images .btn {
+  background-color: #fff;
+} /*# sourceMappingURL=styles.css.map */

@@ -18,3 +18,10 @@ https.createServer(options, app)
   .listen(PORT, () => {
     console.log(`Server is listening on port ${PORT}`);
   });
+
+  // const logger = (req, res, next) => {
+  //   console.log(`Request received at ${new Date()}`);
+  //   next();
+  // };
+  
+  // module.exports = logger;

@@ -10,7 +10,7 @@ Vue.component("pagecomp", {
         <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Jacques_Lameloise%2C_escab%C3%A8che_d%27%C3%A9crevisses_sur_gaspacho_d%27asperge_et_cresson.jpg">
         <div class="desc">Red Crab</div>
         <div class="leg">Fresh from Alaska</div>
-        <button type="button" class="btn btn-lg">Add to Cart</button></div>
+        <button class="btn" type="button">Add to Cart</button></div>
     <div class="catalog">
         <img src="https://upload.wikimedia.org/wikipedia/commons/0/02/Breakfast_at_Irving_Street_Kitchen.jpg">
         <div class="desc">Breakfast Special</div>

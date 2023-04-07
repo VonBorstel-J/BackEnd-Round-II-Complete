@@ -1,0 +1,44 @@
+doctype html
+head
+  title Food Blog
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  script(src='https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js')
+  link(rel='preconnect' href='https://fonts.gstatic.com')
+  link(href='https://fonts.googleapis.com/css2?family=Sacramento&display=swap' rel='stylesheet')
+  link(rel='stylesheet' href='css/styles.css')
+aside#leftside
+aside#rightside
+#container
+  include ./header.pug
+  main
+    aside#photos
+      img(src='images/chili.jpg' alt='White Chicken Chili' width='180')
+    h2
+      blogtitle
+    section#blogposts
+      ul
+        li#posts(v-for='post in posts')
+          span.profile
+            img(v-bind:src='post.profilepic' v-on:click='authorinfo(posts, post)')
+          span.author {{ post.name }}
+          |  &mdash; 
+          span.date {{ post.date }}
+          span.reply {{ post.reply }}
+          p
+            | {{ post.message }}
+        #info_box(v-for='post in posts' v-if='post.thisBox')
+          p.closeBtn.closeBtnP(v-on:click="$emit('close', post.thisBox = false)") &#x2716;
+          #info_title {{ post.name }}
+          #info_foodie
+            span Foodie Level: 
+            | {{ post.foodielevel }}
+          #info_bio
+            span
+              | Bio:
+              br
+            | {{ post.bio }}
+          button.closeBtn.closeBtnB(v-on:click="$emit('close', post.thisBox = false)") Close
+          p#close_info
+  include ./footer.pug
+script(src='js/vue.js')

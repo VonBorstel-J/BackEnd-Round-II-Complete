@@ -1,0 +1,26 @@
+{
+  "name": "lab",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "nodemon -e scss -x \"npm run scss\" & nodemon ./start.js",
+    "scss": "node-sass -o public/css/ public/scss/",
+    "start": "npm run watch"
+  },
+  "author": "JVB",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.18.2",
+    "express-validator": "^6.10.0",
+    "http-auth": "^4.1.2",
+    "mongoose": "^5.12.0",
+    "node-sass": "^8.0.0",
+    "pug": "^3.0.2",
+    "sass": "^1.61.0"
+  }
+}

@@ -1,0 +1,35 @@
+extends layout
+
+block content
+  header
+    nav
+      ul
+        li
+          a(href='/') Home
+        li |
+        li
+          a(href='#') Blog
+        li
+          a(href='/register') Register
+  main
+    section#intro-text
+      div
+        span Simple Kitchen
+        h3
+          | Simple &amp; Comforting 
+          br
+          |             Recipes All Year Round
+        if path === "/"
+          p Pan-seared chicken, Grill shrimp, mac &amp; cheese&mdash;need we say more?
+          button.submit-buttton View Recipes
+    section#intro-image
+      if path === "/"
+        img(src='images/louisiana-barbecued-shrimp.webp' alt='Louisiana Barbecued Shrimp')
+      else if path === "/register"
+        include form.pug
+      else if path === "/thankyou"
+        include thankyou.pug
+      else
+        include thankyou.pug
+  footer
+    | &copy; Copyright 2021

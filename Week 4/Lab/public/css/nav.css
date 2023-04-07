@@ -1,0 +1,20 @@
+/* Nesting */
+/* SCSS */
+nav {
+  font-size: 1em;
+  font-font-weight: bold; }
+  nav ul {
+    list-style-type: none;
+    display: flex;
+    padding-right: 40px; }
+    nav ul li {
+      margin: 0 5px 0 0;
+      color: white; }
+      nav ul li a {
+        text-decoration: none;
+        color: white; }
+        nav ul li a:hover {
+          text-decoration: underline; }
+    nav ul li:last-child {
+      flex-grow: 2;
+      text-align: right; }

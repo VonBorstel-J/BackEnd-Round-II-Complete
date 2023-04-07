@@ -1,0 +1,136 @@
+@import url("https://fonts.googleapis.com/css2?family=Henny+Penny&display=swap");
+
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+#leftside {
+  float: left;
+  width: 30%;
+  min-height: 1200px;
+  background-color: rgb(77, 192, 154);
+}
+#rightside {
+  float: left;
+  width: 70%;
+  min-height: 1200px;
+  background-color: rgb(238, 226, 192);
+  position: relative;
+}
+#container {
+  background-color: rgba(255, 255, 255, 0.85);
+  position: absolute;
+  top: 15%;
+  left: 15%;
+  min-width: 1100px;
+  min-height: 1050px;
+  border-radius: 0.7em;
+}
+header {
+  height:100px;
+  background-color: rgba(231, 229, 229, 0.5);
+  font-size: 2.75em;
+  padding: 0.5em;
+  color: rgb(216, 150, 7);
+  display: flex;
+}
+header span {
+  font-family: "Sacramento", cursive;
+}
+main {
+  position: relative;
+}
+main h2 {
+  position: absolute;
+  left: 20%;
+  top: 30px;
+  margin: 25px 0 200px 50px;
+  color: rgb(60, 190, 160);
+  text-transform: uppercase;
+}
+main #photos img {
+  margin: 0.75em;
+  border: 0.85em solid rgb(255, 255, 255);
+}
+section#blogposts {
+  position: absolute;
+  left: 20%;
+  top: 23px;
+  padding: 50px;
+}
+main .post {
+  margin: 25px;
+  padding: 25px;
+  border: 2px solid rgba(83, 78, 58, 0.6);
+  border-radius: 0.5em;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+footer {
+  position: absolute;
+  bottom: 0;
+  height: 50px;
+  width: 100%;
+  text-align: center;
+  font-size: 0.85em;
+}
+#blogposts img {
+  width: 50px;
+  margin-right: 20px;
+  cursor: pointer;
+}
+.modal.show {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+}
+.modal-dialog {
+  max-width: 300px;
+}
+.modal-content {
+  border-radius: 16px;
+  min-height: 350px;
+}
+.modal-header {
+  padding: 0px 16px;
+}
+.modal-header,
+.modal-footer {
+  border: none;
+}
+.modal-footer {
+  justify-content: flex-start;
+}
+.modal-body {
+  border: none;
+  padding-top: 0;
+}
+#my-vue .close {
+  border: none;
+  color: white;
+  background-color: inherit;
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 50px;
+}
+.content {
+  margin-bottom: 20px;
+}
+.content > span:first-child {
+  font-weight: 600;
+}
+.content > span:nth-child(2) {
+  font-size: 14px;
+}
+#my-vue .modal-content {
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+}
+#my-vue .navbar {
+  font-size: 24px;
+  margin-left: 50px;
+}
+#my-vue .navbar a {
+  font-family: "Henny Penny", sans-serif !important;
+}
+

@@ -1,31 +1,22 @@
 {
-  "name": "m3-w1-d2-assignment",
+  "name": "express_exercise",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "exp_demo1.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "watch": "nodemon ./start.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/VonBorstel-J/m3-w1-d2-assignment.git"
+    "url": "git+https://github.com/rhernandez1996/m3-wk1-d2-demo.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/VonBorstel-J/m3-w1-d2-assignment/issues"
+    "url": "https://github.com/rhernandez1996/m3-wk1-d2-demo/issues"
   },
-  "homepage": "https://github.com/VonBorstel-J/m3-w1-d2-assignment#readme",
+  "homepage": "https://github.com/rhernandez1996/m3-wk1-d2-demo#readme",
   "dependencies": {
-    "body-parser": "^1.20.0",
-    "dotenv": "^16.0.1",
-    "express": "^4.18.1",
-    "express-validator": "^6.14.2",
-    "http-auth": "^4.1.9",
-    "pug": "^3.0.2"
-  },
-  "devDependencies": {
-    "nodemon": "^2.0.19"
+    "express": "^4.18.2"
   }
 }

@@ -1,0 +1,91 @@
+@import "colors.scss";
+@import "nav.scss";
+@import "form.scss";
+
+/* Variables */
+$fontFamily1: Arial, Helvetica, Sans-Serif;
+$fontFamily2: "Sacramento", cursive;
+$fontSizeH1: 3em;
+$fontSizeH2: 2.5em;
+$fontSizeH3: 2em;
+$fontSizeSmall: 0.85em;
+
+html {
+  // Operations
+  font-size: 0.8em + 0.2; //1
+  width: (100% / 2) + 50%; //75;
+}
+
+body {
+  font-family: $fontFamily1;
+  background: $backgroundColor1;
+}
+
+header {
+  height: 50px;
+  width: 1350px;
+  margin: 0.8em auto 1em auto;
+}
+
+main {
+  background: $mainColor;
+  width: 1350px;
+  min-height: 535px;
+  padding: 1.5%;
+  margin: 0 auto;
+  display: flex;
+
+  #intro-image {
+    flex-grow: 2;
+    margin: 25px;
+    img {
+      width: 800px;
+    }
+    h2 {
+      text-align: center;
+    }
+  }
+
+  #intro-text {
+    background: $sectionColor;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    width: 40%;
+
+    > div {
+      width: 100%;
+    }
+
+    h3 {
+      font-size: $fontSizeH3;
+      color: $color3;
+      margin: 20px 0;
+    }
+
+    span {
+      font-family: $fontFamily2;
+      font-size: 2em;
+    }
+  }
+}
+
+footer {
+  width: 1350px;
+  margin: 2em auto;
+  padding-left: 80px;
+  font-size: $fontSizeSmall;
+}
+
+// @extend
+button {
+  color: $color4;
+  height: 40px;
+  background: $backgroundColor1;
+  margin-top: 2em;
+}
+.submit-buttton {
+  @extend button;
+  border: 1px $color3;
+}

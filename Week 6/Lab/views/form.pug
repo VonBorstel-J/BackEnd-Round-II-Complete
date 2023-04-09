@@ -1,0 +1,49 @@
+-data = data || {}
+
+if errors
+	ul.my-errors
+		for error in errors
+			li= error.msg
+h3.form-title Register to subscribe
+form(action="/register" method="POST" class="form-registration")
+	label(for="name") Name:
+	input(
+		type="text"
+		id="name"
+		name="name"
+		class="form-control"
+		value=data.name
+	)
+
+	label(for="email") Email:
+	input(
+		type="email"
+		id="email"
+		name="email"
+		class="form-control"
+		value=data.email
+	)
+
+	label(for="username") Username:
+	input(
+		type="text"
+		id="username"
+		name="username"
+		class="form-control"
+		value=data.username
+	)
+
+	label(for="password") Password:
+	input(
+		type="password"
+		id="password"
+		name="password"
+		class="form-control"
+		value=data.password
+	)
+
+	input(
+		type="submit" 
+		value="Register"
+		class="submit-button"
+	)

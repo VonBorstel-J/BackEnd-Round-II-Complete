@@ -1,8 +1,0 @@
-This lab assessment is incomplete I am having a lot of trouble with mongoose and I am not totally sure why 
-
-
-/node_modules/mongoose/lib/connection.js:428 throw new MongooseError('The uri parameter to openUri() must be a ' + ^ MongooseError: The uri parameter to openUri() must be a string, got "undefined". Make sure the first parameter to mongoose.connect() or mongoose.createConnection() is a string. 
-
-
-
-this is the error I am given I have uninstalled and reinstalled mongodb, as well as the node modules and all of the dependencies. 

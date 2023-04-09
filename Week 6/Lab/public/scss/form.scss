@@ -1,0 +1,70 @@
+@import "colors.scss";
+/* css for registration form and errors*/
+/* Styles for listing table */
+body {
+	padding: 40px 10px;
+	background-color: #eee;
+}
+.listing-reg {
+	h1 {
+		text-align: center;
+		margin: 0 0 2rem;
+	}
+}
+.form-registration {
+	max-width: 330px;
+	padding: 15px;
+	margin: 0 auto;
+	display: flex;
+	flex-wrap: wrap;
+	input {
+		width: 100%;
+		margin: 0px 0 10px;
+	}
+	.submit-button {
+		border: none;
+		background-color: $backgroundColor1;
+		color: $color4;
+		padding: 5px;
+		margin-top: 20px;
+	}
+}
+.my-errors {
+	margin: 0 auto;
+	margin-bottom: 20px;
+	padding: 0;
+	list-style: none;
+	color: #333;
+	font-size: 1.2rem;
+	display: table;
+	li {
+		&:before {
+			content: "! Error : ";
+			color: #f00;
+			font-weight: bold;
+		}
+	}
+}
+.listing-table {
+	width: 100%;
+	th {
+		padding: 10px;
+		border-bottom: 1px solid #666;
+		background: #000;
+		color: #fff;
+		&:first-child {
+			border-right: 1px solid #666;
+		}
+	}
+	td {
+		padding: 10px;
+		border-bottom: 1px solid #666;
+		&:first-child {
+			border-right: 1px solid #666;
+		}
+	}
+}
+.form-title {
+	text-align: center;
+	font-weight: 700;
+}

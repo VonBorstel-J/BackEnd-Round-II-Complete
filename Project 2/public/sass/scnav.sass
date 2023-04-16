@@ -1,0 +1,212 @@
+.pa-fixed-header
+  background-color: #ffffff !important
+  -webkit-transition: background-color 1s ease-out
+  -moz-transition: background-color 1s ease-out
+  -o-transition: background-color 1s ease-out
+  transition: background-color 1s ease-out
+
+.text-black
+  color: #010b0f !important
+
+.topnav
+  overflow: hidden
+
+  a
+    display: inline-block
+    color: #f2f2f2
+    font-size: 17px
+
+    &:hover
+      background-color: #ddd
+      color: black
+
+    &:nth-child(1)
+      font-size: 1.3em
+      font-weight: 600
+
+  .icon
+    display: none
+
+.navbar
+  background-color: #dda15e
+  justify-content: space-between
+  align-items: center
+  position: fixed
+  z-index: 100
+  box-shadow: 0px 3px 5px rgba(0 0 0 / 10%)
+  padding: 0
+  width: 100%
+
+.navFlex
+  display: flex
+  justify-content: space-between
+  align-items: center
+  padding: 1rem 1.5rem
+
+.nav-links
+  display: flex
+  justify-content: space-between
+  align-items: center
+
+.nav-item
+  margin-left: 5rem
+
+  &:hover
+    color: #482ff7
+
+.GIGA
+  display: inline-block
+  width: min-content
+  padding-left: 20px
+  font-size: 50px
+
+/*Grid System
+
+.navbar-grid
+  display: grid
+  grid-template-columns: repeat(4, minmax(360px, 1fr))
+  grid-template-rows: max-content
+
+.shippingBannerP
+  background-color: black
+  width: 100%
+
+/* .navGrid { 
+ *  grid-column-start: 1;
+ *  grid-column-end:-3;
+ *}
+
+#shippingBannerC
+  color: #f1f1f1
+  margin-left: 45%
+
+#myTopnav
+  padding: 10px
+  width: 100%
+  height: max-content
+  overflow: visible
+
+.hamburger
+  display: none
+
+.bar
+  display: block
+  width: 25px
+  height: 3px
+  margin: 5px auto
+  -webkit-transition: all 0.3s ease-in-out
+  transition: all 0.3s ease-in-out
+  background-color: #101010
+
+/* Media Query
+
+@media only screen and (max-width: 768px)
+  .nav-links
+    position: fixed
+    left: -100%
+    top: 5rem
+    flex-direction: column
+    background-color: #dda15e
+    width: 50%
+    border: solid #001858
+    border-radius: 10px
+    text-align: center
+    transition: 0.3s
+    box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05)
+
+    &.active
+      left: 15%
+
+  .nav-item
+    margin: 2.5rem 0
+
+  .hamburger
+    display: inline-block
+    position: relative
+    left: 30%
+    bottom: 20px
+    cursor: pointer
+
+    &.active .bar
+      &:nth-child(2)
+        opacity: 0
+
+      &:nth-child(1)
+        transform: translateY(8px) rotate(45deg)
+
+      &:nth-child(3)
+        transform: translateY(-8px) rotate(-45deg)
+
+@media only screen and (max-width: 426px)
+  .nav-links
+    position: fixed
+    left: -100%
+    top: 5rem
+    flex-direction: column
+    background-color: #dda15e
+    width: 50%
+    border: solid #001858
+    border-radius: 10px
+    text-align: center
+    transition: 0.3s
+    box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05)
+
+    &.active
+      left: 45%
+
+  .nav-item
+    margin: 2.5rem 0
+
+  .hamburger
+    display: inline-block
+    position: relative
+    left: 20%
+    bottom: 30px
+    cursor: pointer
+
+    &.active .bar
+      &:nth-child(2)
+        opacity: 0
+
+      &:nth-child(1)
+        transform: translateY(8px) rotate(45deg)
+
+      &:nth-child(3)
+        transform: translateY(-8px) rotate(-45deg)
+
+@media only screen and (max-width: 320px)
+  .nav-links
+    position: fixed
+    left: -100%
+    top: 5rem
+    flex-direction: column
+    background-color: #dda15e
+    width: 50%
+    border: solid #001858
+    border-radius: 10px
+    text-align: center
+    transition: 0.3s
+    box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05)
+
+    &.active
+      left: 45%
+
+  .nav-item
+    margin: 2.5rem 0
+
+  .hamburger
+    display: inline-block
+    position: relative
+    left: 10%
+    bottom: 20px
+    cursor: pointer
+
+    &.active .bar
+      &:nth-child(2)
+        opacity: 0
+
+      &:nth-child(1)
+        transform: translateY(8px) rotate(45deg)
+
+      &:nth-child(3)
+        transform: translateY(-8px) rotate(-45deg)

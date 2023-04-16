@@ -1,0 +1,169 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  meta(name='viewport' content='width=device-width, initial-scale=1, minimum-scale=1')
+  link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC' crossorigin='anonymous')
+  link(rel='stylesheet' href='/MBD/css/mdb.min.css')
+  link(rel='stylesheet' href='/public/css/home_page.css')
+  link(rel='stylesheet' href='/public/css/scroll_nav.css')
+  link(rel='stylesheet' href='/public/css/products_page.css')
+  link(rel='stylesheet' href='https://www.w3schools.com/w3css/4/w3.css')
+  link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
+  link(href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet')
+  title H-52s BEAST
+  link(rel='shortcut icon' href='/public/img/favicon.ico' type='image/x-icon')
+  link(rel='icon' href='/public/img/favicon.ico' type='image/x-icon')
+// Main Navigation
+header
+  #navBar.navbar
+    .shippingBannerP
+      p#shippingBannerC Free Shipping on orders over 100$
+    // <div class="navbar-grid">
+    nav#myTopnav.topnav.container.navFlex
+      a.GIGA(href='#')
+        img.rounded-circle.z-depth-6(src='/public/img/img_avatar.png' alt='Avatar Logo' style='width: 50px;height: 50px;')
+        |  GIGACOMMERCE
+      ul.nav-links
+        li.nav-item
+          a.nav-link(aria-current='page' href='/public/html/index.html') Home
+        li.nav-item
+          a.nav-link(href='/public/html/Product.html') Products
+        li.nav-item
+          a.nav-link(href='/public/html/Contact.html') Contact Us
+      #hamburger.hamburger
+        span.bar
+        span.bar
+        span.bar
+main
+  #productsGrid.grid-container
+    h1#productsH1 THE H-52 BEAST FROM THE BLOCK
+    #carouselDarkVariant.carousel.carousel-dark(data-interval='false')
+      .carousel-indicators
+        button.active(data-mdb-target='#carouselDarkVariant' data-mdb-slide-to='0' aria-current='true' aria-label='Slide 1')
+        button(data-mdb-target='#carouselDarkVariant' data-mdb-slide-to='1' aria-label='Slide 1')
+        button(data-mdb-target='#carouselDarkVariant' data-mdb-slide-to='2' aria-label='Slide 3')
+        button(data-mdb-target='#carouselDarkVariant' data-mdb-slide-to='3' aria-label='Slide 4')
+      .carousel-inner.rounded-5.shadow-4-strong
+        // Single item
+        #iframeR.carousel-item.active(data-mdb-interval='1000000')
+          iframe.responsive-iframe(src='https://www.youtube.com/embed/-MAmfn8R1dg' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen='')
+        .carousel-item(data-mdb-interval='1000000')
+          img(src='https://cdn.shopify.com/s/files/1/0611/8201/7699/products/IMG_0983-scaled_1024x1024.jpg?v=1651669145')
+        .carousel-item(data-mdb-interval='1000000')
+          img(src='https://www.rideandglide.co.uk/wp-content/uploads/IMG_0960-scaled.jpg')
+        .carousel-item(data-mdb-interval='1000000')
+          img(src='https://editorial.pxcrush.net/bikesales/general/editorial/82146167_2999943140036853_5800280344573771776_n.jpg?' style='width:100%;')
+      button.carousel-control-prev(style='color: black' type='button' data-mdb-target='#carouselDarkVariant' data-mdb-slide='prev')
+        span.carousel-control-prev-icon(aria-hidden='true')
+        span.visually-hidden Previous
+      button.carousel-control-next(style='color: black' type='button' data-mdb-target='#carouselDarkVariant' data-mdb-slide='next')
+        span.carousel-control-next-icon(aria-hidden='true')
+        span.visually-hidden Next
+    span#lineBreak
+    section#productDescriptionP.justify-contents-center
+      #productDescriptionC
+        h2#productsH2 Whats under the Hood
+        p
+          | Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quas omnis velit maiores odit nostrum dolorem blanditiis quaerat, eveniet voluptatem facilis possimus libero a aliquam dignissimos quasi error, ea voluptate accusamus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae, corporis eum architecto omnis minima excepturi sunt est tempore, laborum corrupti deserunt enim veritatis quam necessitatibus quia illo, iure dolore placeat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime eum dolorem quos dicta fugiat quae, architecto, nam officiis amet ipsum molestias exercitationem rem voluptates eaque illum ullam fuga eveniet tempora!  Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque officiis quod possimus quam nemo, est, minima illum sapiente ex labore dolorem molestias. Eligendi reprehenderit iusto eos impedit perspiciatis, cum placeat!
+    span#lineBreak2
+    h2#relatedPTitle Related Fun
+    section.relatedP.card-deck
+      .card.bg-dark(style='width: 20rem;')
+        img.card-img-top(style='padding-right: 100px; margin-left: 70px;' src='https://s.yimg.com/ny/api/res/1.2/HVJ9BrrFduN4ZH12mMLQ6Q--/YXBwaWQ9aGlnaGxhbmRlcjt3PTY0MDtoPTQyNw--/https://s.yimg.com/uu/api/res/1.2/kb2Rx3Srgaz5SxeC9g6.pw--~B/aD00ODA7dz03MjA7YXBwaWQ9eXRhY2h5b24-/http://media.zenfs.com/en-US/cms/autos/Boldride/stealth-b52-bomber-2.jpg' alt='Card image cap')
+        .card-body.text-light
+          h5.card-title.text-uppercase.font-weight-bold Lorem, IP IP
+          p.card-text.text-center
+            | Lorem, ipsum dolor sit amet consectetur adipisicing elit. Possimus ut nostrum cum odio, hic quia eaque saepe accusamus nobis earum excepturi eos voluptate impedit adipisci reprehenderit aut dicta voluptatibus praesentium.
+          a.btn.btn-primary.font-weight-bold(href='#') Go
+      .card.bg-dark(style='width: 20rem;')
+        img.card-img-top(src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRH3tampsngFH1YjRNsvOl_zEAV1nOKsRjcLw&usqp=CAU' style='padding-right: 100px; margin-left: 70px;' alt='Card image cap')
+        .card-body.text-light
+          h5.card-title.text-uppercase.font-weight-bold Ipsum, IP IP 
+          p.card-text.text-center
+            | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam cumque dolore, quibusdam deleniti, temporibus sit perferendis nulla quo laborum magnam dolores. Aperiam animi vitae distinctio voluptates. Earum quas at aspernatur.
+          a.btn.btn-primary.font-weight-bold(href='#') Go
+      .card.bg-dark(style='width: 20rem;')
+        img.card-img-top(src='https://cdn.shopify.com/s/files/1/1520/2468/products/AventureSoCalSand_1.jpg?v=1649183627' style='padding-right: 100px; margin-left: 70px;' alt='Card image cap')
+        .card-body.text-light
+          h5.card-title.text-uppercase.font-weight-bold Dolor, IP IP
+          p.card-text.text-center
+            | Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate sed saepe molestiae laborum quos! Possimus exercitationem, perspiciatis a magni animi quisquam doloribus voluptates quasi, similique, repellendus facere. Magni, cumque? Voluptatibus?
+          a.btn.btn-primary.font-weight-bold(href='#') Go
+    section#lastSection
+      #lastImgProducts.img-fluid
+        img(style='border-radius: 10px;' src='https://trek.scene7.com/is/image/TrekBicycleProducts/fraud_awareness_Top_marquee_16x9?$responsive-pjpg$&cache=on,on&wid=1920' alt='')
+      #productsj1.j1
+        .jumbotron.jumbotron-fluid.bg-dark.text-white(style='border-radius: 10px; background-color: #0d0d0d!important;')
+          .container-fluid
+            h1#productsH1.display-3.text-light Who We Are 
+            p.lead
+              | Lorem, ipsum dolor sit amet consectetur adipisicing elit. Enim aspernatur ad odio harum, id, reprehenderit similique ipsum maiores inventore tempora adipisci soluta, nemo accusamus est natus! Velit sit magni est.
+            hr.my-4
+            p
+              | Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio ut natus at, veniam doloribus animi aliquid. Consectetur quas autem nulla dolore accusantium maiores at dicta quos eaque nemo, voluptate in. eniam doloribus animi aliquid. Consectetur quas autem nulla dolore accusantium maiores at dicta quos eaque nemo, voluptate in.
+            p.lead
+footer.footer
+  .containerF.w3-container.py-5
+    .row.py-4
+      .col-lg-4.col-md-6.mb-4.mb-lg-0
+        p.font-italic
+          | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.
+        ul.list-inline.mt-4
+          li.list-inline-item
+            a(href='#' target='_blank' title='twitter')
+              i.fa.fa-twitter
+          li.list-inline-item
+            a(href='#' target='_blank' title='facebook')
+              i.fa.fa-facebook
+          li.list-inline-item
+            a(href='#' target='_blank' title='instagram')
+              i.fa.fa-instagram
+          li.list-inline-item
+            a(href='#' target='_blank' title='pinterest')
+              i.fa.fa-pinterest
+          li.list-inline-item
+            a(href='#' target='_blank' title='vimeo')
+              i.fa.fa-vimeo
+      .col-lg-2.col-md-6.mb-4.mb-lg-0
+        h6.text-uppercase.font-weight-bold.mb-4 Shop
+        ul.list-unstyled.mb-0
+          li.mb-2
+            a(href='#') Cool Stuff
+          li.mb-2
+            a(href='#') Cooler Stuff
+          li.mb-2
+            a(href='#') Coolish Stuff
+          li.mb-2
+            a(href='#') The Coolest Stuff
+      .col-lg-2.col-md-6.mb-4.mb-lg-0
+        h6.text-uppercase.font-weight-bold.mb-4 Company
+        ul.list-unstyled.mb-0
+          li.mb-2
+            a(href='#') Login
+          li.mb-2
+            a(href='#') Register
+          li.mb-2
+            a(href='#') Wishlist
+          li.mb-2
+            a(href='#') Our Products
+      .col-lg-4.col-md-6.mb-lg-0
+        h6.text-uppercase.font-weight-bold.mb-4 Newsletter
+        p.mb-4 Lorem ipsum dolor sit amet, consectetur adipisicing elit. At itaque temporibus.
+        .p-1.rounded.border
+          .input-group
+            input.form-control.border-0.shadow-0(type='email' placeholder='Enter your email address' aria-describedby='button-addon1')
+            .input-group-append
+              button#button-addon1.btn.btn-link(type='submit' style='color:dodgerblue;')
+                i.fa.fa-paper-plane(style='float:right;')
+  // Copyrights
+  .bg-light
+    .container.text-center
+      p.mb-0.py-2 &copy; This site is for display purposes only*****
+script(type='text/javascript' src='/MBD/js/mdb.min.js')
+script(type='text/javascript' src='/js/yT.js')
+script(type='text/javascript' src='/js/signInModal.js')
+script(type='text/javascript' src='/js/scroll_nav.js')
+script(type='text/javascript' src='https://cdn.jsdelivr.net/npm/vue@2.7.8/dist/vue.js')
+script(type='text/javascript' src='https://kit.fontawesome.com/1097c61675.js' crossorigin='anonymous')
+script(type='text/javascript' src='https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js' integrity='sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p' crossorigin='anonymous')

@@ -1,0 +1,38 @@
+{
+  "name": "project-2",
+  "version": "1.0.0",
+  "description": "BackEnd Project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "nodemon ./js/start.js",
+    "mongoCloud": "nodemon ./routes/index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@vue/cli": "^5.0.8",
+    "bcrypt": "^5.0.1",
+    "body-parser": "^1.20.0",
+    "connect-ensure-login": "^0.1.1",
+    "dotenv": "^16.0.1",
+    "ejs": "^3.1.8",
+    "express": "^4.18.1",
+    "express-flash": "^0.0.2",
+    "express-session": "^1.17.3",
+    "express-validator": "^6.14.2",
+    "http-auth": "^4.1.9",
+    "mdb-ui-kit": "^4.4.0",
+    "mongodb": "^4.9.0",
+    "mongoose": "^6.5.1",
+    "passport": "^0.6.0",
+    "passport-local": "^1.0.0",
+    "passport-local-mongoose": "^7.1.2",
+    "pug": "^3.0.2",
+    "vue": "^3.2.37"
+  },
+  "devDependencies": {
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.19"
+  }
+}

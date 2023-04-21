@@ -2,17 +2,25 @@ const mongoose = require("mongoose");
 const User = require("./models/user");
 const express = require("express");
 const app = express();
-const productsRouter = require('./routes/productRoutes');
 const PORT = process.env.PORT || 3000;
 const path = require("path");
+const productsRouter = require("./routes/productRoutes");
+const cartRoutes = require("./routes/cartRoutes");
+const Product = require('./models/products'); 
 
+app.use("/", cartRoutes);
 app.use(express.json());
+app.use(express.static(path.join(__dirname, "public")));
 
+app.get("/css/styles.css", (req, res) => {
+  res.set("Content-Type", "text/css");
+  res.sendFile(__dirname + "/css/styles.css");
+});
 
-
-
-
-
+app.get("/public/addCart.js", (req, res) => {
+  res.set("Content-Type", "application/javascript");
+  res.sendFile(__dirname + "/public/addCart.js");
+});
 
 mongoose
   .connect(
@@ -32,16 +40,13 @@ mongoose
     console.error("Error connecting to database", err);
   });
 
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "views", "index.html"));
+});
 
-  app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, "views", "index.html"));
-  });
+app.use("/api/products", productsRouter);
 
-
-
-app.use('/api/products', productsRouter);
-
-app.get('/api/products', (req, res) => {
+app.get("/api/products", (req, res) => {
   Product.find({}, (err, products) => {
     if (err) {
       res.status(500).send(err);
@@ -50,7 +55,6 @@ app.get('/api/products', (req, res) => {
     }
   });
 });
-
 
 app.post("/users", (req, res) => {
   const { email, password, firstName, lastName } = req.body;

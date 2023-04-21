@@ -5,7 +5,7 @@ $(function () {
   var cartTotal = $("#cart-total");
 
   function updateCartDropdown() {
-    $.get("/cart", function (data) {
+    $.get("http://localhost:3000/cart", function (data) {
       cartItemCount.text(data.items.length);
       cartTotal.text("$" + data.total.toFixed(2));
 

@@ -2,10 +2,17 @@ const mongoose = require("mongoose");
 const User = require("./models/user");
 const express = require("express");
 const app = express();
-const productsRouter = require('./routes/products');
+const productsRouter = require('./routes/productRoutes');
 const PORT = process.env.PORT || 3000;
+const path = require("path");
 
 app.use(express.json());
+
+
+
+
+
+
 
 mongoose
   .connect(
@@ -23,6 +30,11 @@ mongoose
   })
   .catch((err) => {
     console.error("Error connecting to database", err);
+  });
+
+
+  app.get("/", (req, res) => {
+    res.sendFile(path.join(__dirname, "views", "index.html"));
   });
 
 

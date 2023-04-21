@@ -1,95 +1,104 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
+const Product = require("../models/products");
 
-// Route to get all products
-router.get('/products', (req, res) => {
-  // code to get all products from database using Mongoose
-  res.send('This route will display all products');
-});
-
-// Route to get a specific product
-router.get('/products/:id', (req, res) => {
-  // code to get a specific product from database using Mongoose
-  res.send(`This route will display product with id ${req.params.id}`);
-});
-
-// Route to add a new product
-router.post('/products', (req, res) => {
-  // code to add a new product to the database using Mongoose
-  res.send('This route will add a new product');
-});
-
-// Route to update a product
-router.put('/products/:id', (req, res) => {
-  // code to update a product in the database using Mongoose
-  res.send(`This route will update product with id ${req.params.id}`);
-});
-
-// Route to delete a product
-router.delete('/products/:id', (req, res) => {
-  // code to delete a product from the database using Mongoose
-  res.send(`This route will delete product with id ${req.params.id}`);
-});
-
-module.exports = router;
-
-const express = require('express');
-const router = express.Router();
-const Product = require('../models/product');
-
-// Read all products
-router.get('/products', async (req, res) => {
+// Get all products
+router.get("/products", async (req, res) => {
   try {
     const products = await Product.find();
-    res.render('products', { products });
+    res.render("products", { products });
   } catch (err) {
     console.error(err);
-    res.status(500).send('Server Error');
+    res.status(500).send("Server Error");
   }
 });
 
-// Read one product
-router.get('/products/:id', async (req, res) => {
+//Bootstrap Pagination
+router.get('/products', async (req, res) => {
+  const perPage = 9; // number of products to display per page
+  const page = req.query.page || 1; // default to first page
+
+  try {
+    const products = await Product.find()
+      .skip((perPage * page) - perPage)
+      .limit(perPage);
+    const count = await Product.countDocuments();
+    res.render('products/index', {
+      products: products,
+      current: page,
+      pages: Math.ceil(count / perPage)
+    });
+  } catch (err) {
+    console.error(err);
+    res.render('error/500');
+  }
+});
+
+// Search products
+router.get("/", async (req, res) => {
+  try {
+    const q = req.query.q;
+    const products = await Product.find({ name: { $regex: q, $options: "i" } });
+    res.render("products/index", { products: products });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Server error");
+  }
+});
+
+// Get a single product by id
+router.get("/products/:id", async (req, res) => {
   try {
     const product = await Product.findById(req.params.id);
-    res.render('product', { product });
+    if (!product) {
+      return res.status(404).send("Product not found");
+    }
+    res.render("product", { product });
   } catch (err) {
     console.error(err);
-    res.status(500).send('Server Error');
+    res.status(500).send("Server Error");
   }
 });
 
-// Create a product
-router.post('/products', async (req, res) => {
+// Create a new product
+router.post("/products", async (req, res) => {
   try {
     const product = new Product(req.body);
     await product.save();
-    res.redirect(`/products/${product.id}`);
+    res.status(201).json(product);
   } catch (err) {
     console.error(err);
-    res.status(500).send('Server Error');
+    res.status(500).send("Server Error");
   }
 });
 
-// Update a product
-router.put('/products/:id', async (req, res) => {
+// Update an existing product by id
+router.put("/products/:id", async (req, res) => {
   try {
-    const product = await Product.findByIdAndUpdate(req.params.id, req.body, { new: true });
+    const product = await Product.findByIdAndUpdate(req.params.id, req.body, {
+      new: true,
+    });
+    if (!product) {
+      return res.status(404).send("Product not found");
+    }
     res.json(product);
   } catch (err) {
     console.error(err);
-    res.status(500).send('Server Error');
+    res.status(500).send("Server Error");
   }
 });
 
-// Delete a product
-router.delete('/products/:id', async (req, res) => {
+// Delete an existing product by id
+router.delete("/products/:id", async (req, res) => {
   try {
     const product = await Product.findByIdAndDelete(req.params.id);
+    if (!product) {
+      return res.status(404).send("Product not found");
+    }
     res.json(product);
   } catch (err) {
     console.error(err);
-    res.status(500).send('Server Error');
+    res.status(500).send("Server Error");
   }
 });
 

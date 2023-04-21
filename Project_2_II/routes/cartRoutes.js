@@ -1,23 +1,23 @@
-const express = require("express");
-const router = express.Router();
-const Cart = require("../routes/cart");
+const router = require("express").Router();
+const Cart = require("../models/cartModel");
 const Product = require("../models/products");
+const User = require("../models/user");
 
 // Get cart
 router.get("/cart", async (req, res) => {
   try {
     const cart = await Cart.findOne();
     if (!cart) {
-      return res.json({ items: [], total: 0 });
+      return res.status(200).json({ items: [], total: 0 });
     }
 
     // Populate products in cart items
     await cart.populate("items.product").execPopulate();
 
-    res.json({ items: cart.items, total: cart.total });
+    res.status(200).json({ items: cart.items, total: cart.total });
   } catch (err) {
     console.error(err);
-    res.status(500).send("Server Error");
+    res.status(500).json({ error: "Server Error" });
   }
 });
 
@@ -25,7 +25,6 @@ router.get("/cart", async (req, res) => {
 router.post("/cart/items", async (req, res) => {
   try {
     const productId = req.body.productId;
-
     const cart = await Cart.findOne();
     let item;
 
@@ -53,6 +52,8 @@ router.post("/cart/items", async (req, res) => {
     cart.total += product.price;
 
     await cart.save();
+
+    console.log(`Added item with ID ${productId} to cart.`); // new console log
 
     res.status(201).json(cart);
   } catch (err) {

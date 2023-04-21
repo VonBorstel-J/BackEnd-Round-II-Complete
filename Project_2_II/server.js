@@ -1,14 +1,14 @@
 const mongoose = require("mongoose");
-const User = require("./models/user");
+const User = require("./models/user.js");
 const express = require("express");
 const app = express();
 const PORT = process.env.PORT || 3000;
 const path = require("path");
 const productsRouter = require("./routes/productRoutes");
-const cartRoutes = require("./routes/cartRoutes");
+const cartRoutes = require("./routes/cartRoutes.js");
 const Product = require('./models/products'); 
 
-app.use("/", cartRoutes);
+app.use('/api', cartRoutes);
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "public")));
 

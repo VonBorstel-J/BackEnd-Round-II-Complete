@@ -1,12 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const Product = require('../models/products'); 
-const Cart = mongoose.model('Cart', cartSchema);
-const mongoose = require('mongoose');
+const Product = require('../models/products');
+const Cart = require('../models/cartModel');
 
-router.get('/', async (req, res) => {
+router.get('/api', async (req, res) => {
   try {
-    const cart = await Cart.findOne({ user: req.user.id }).populate('items.product');
+    const cart = await Cart.findOne({ user: req.user.id }).populate('products');
     res.json(cart);
   } catch (err) {
     console.error(err);
@@ -14,11 +13,11 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.post('/items', async (req, res) => {
+router.post('/products', async (req, res) => {
   try {
     const product = await Product.findById(req.body.productId);
     const cart = await Cart.findOne({ user: req.user.id });
-    cart.items.push({ product: product._id, quantity: 1 });
+    cart.products.push(product._id);
     await cart.save();
     res.json(cart);
   } catch (err) {
@@ -27,10 +26,10 @@ router.post('/items', async (req, res) => {
   }
 });
 
-router.delete('/items/:id', async (req, res) => {
+router.delete('/products/:id', async (req, res) => {
   try {
     const cart = await Cart.findOne({ user: req.user.id });
-    cart.items = cart.items.filter(item => item.id !== req.params.id);
+    cart.products = cart.products.filter(product => product.toString() !== req.params.id);
     await cart.save();
     res.sendStatus(200);
   } catch (err) {
@@ -39,31 +38,4 @@ router.delete('/items/:id', async (req, res) => {
   }
 });
 
-
-
-const cartSchema = new mongoose.Schema({
-  user: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'User',
-    required: true
-  },
-  products: [
-    {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'Product'
-    }
-  ],
-  createdAt: {
-    type: Date,
-    default: Date.now
-  },
-  updatedAt: {
-    type: Date,
-    default: Date.now
-  }
-});
-
-
-
-module.exports = Cart;
 module.exports = router;

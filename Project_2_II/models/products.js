@@ -1,3 +1,4 @@
+
 const express = require('express');
 const router = express.Router();
 
@@ -31,6 +32,9 @@ router.post('/', async (req, res) => {
 module.exports = router;
 const mongoose = require('mongoose');
 
+
+
+/*
 //Product schema 
 
 const productSchema = new mongoose.Schema({
@@ -71,3 +75,4 @@ const productSchema = new mongoose.Schema({
 const Product = mongoose.model('Product', productSchema);
 
 module.exports = Product;
+*/

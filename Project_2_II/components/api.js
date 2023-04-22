@@ -1,44 +1,48 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
+import bcrypt from "bcryptjs";
 
-// Replace <username>, <password>, <dbname>, and <clustername> with your MongoDB Atlas credentials
-const MONGODB_URI = 'mongodb+srv://j:jvb123@project2.p88qgof.mongodb.net/?retryWrites=true&w=majority'
+const SALT_WORK_FACTOR = 10; 
+
+require('dotenv').config();
+const MONGODB_URI = process.env.MONGODB_URI;
 
 // Create a new MongoDB Atlas connection
-mongoose.connect(MONGODB_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  dbName: "<mydatabase>"
-}).then(() => {
-  console.log('Connected to MongoDB Atlas');
-}).catch((err) => {
-  console.error(err);
-});
+mongoose
+  .connect(MONGODB_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    dbName: "<mydatabase>"
+  }).then(() => {
+    console.log('Connected to MongoDB Atlas');
+  }).catch((err) => {
+    console.error(err);
+  });
 
 // Define a new Mongoose schema for users
 const userSchema = new mongoose.Schema({
   firstName: {
     type: String,
-    required: true
+    required: true,
   },
   lastName: {
     type: String,
-    required: true
+    required: true,
   },
   email: {
     type: String,
     required: true,
-    unique: true
+    unique: true,
   },
   password: {
     type: String,
-    required: true
-  }
+    required: true,
+  },
 });
 
 // Define a Mongoose model for users
-const User = mongoose.model('User', userSchema);
+const User = mongoose.model("User", userSchema);
 
-const API_URL = '/api';
+const API_URL = "/api";
 
 // User registration method
 export const register = async (email, password, firstName, lastName) => {
@@ -49,12 +53,12 @@ export const register = async (email, password, firstName, lastName) => {
       email,
       password: hashedPassword,
       firstName,
-      lastName
+      lastName,
     });
     await user.save();
     return user;
   } catch (error) {
-    throw new Error('An error occurred while signing up');
+    throw new Error("An error occurred while signing up");
   }
 };
 
@@ -63,14 +67,14 @@ export const login = async (email, password) => {
   try {
     const user = await User.findOne({ email }).exec();
     if (!user) {
-      throw new Error('User not found');
+      throw new Error("User not found");
     }
     const isPasswordMatch = await bcrypt.compare(password, user.password);
     if (!isPasswordMatch) {
-      throw new Error('Invalid email or password');
+      throw new Error("Invalid email or password");
     }
     return user;
   } catch (error) {
-    throw new Error('Invalid email or password');
+    throw new Error("Invalid email or password");
   }
-}
+};

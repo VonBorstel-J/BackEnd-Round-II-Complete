@@ -1,22 +1,31 @@
-
+require("dotenv").config();
 const mongoose = require("mongoose");
 const User = require("./models/user.js");
 const express = require("express");
 const app = express();
-const mime = require('mime');
+const mime = require("mime");
 const PORT = process.env.PORT || 3000;
 const path = require("path");
 const productsRouter = require("./routes/productRoutes");
 const cartRoutes = require("./routes/cartRoutes.js");
 const Product = require("./models/products");
+const Vue = require('vue');
+const renderer = require('vue-server-renderer').createRenderer();
+const { createBundleRenderer } = require('vue-server-renderer');
+const vueTemplateCompiler = require('vue-template-compiler');
+const { createSSRApp } = require('vue')
+const { renderToString } = require('@vue/server-renderer')
 
-
-// Error handling middleware
-app.use((err, req, res, next) => {
-  console.error(err.stack);
-  res.status(500).send("Something went wrong!");
+// Compile Vue.js templates
+app.engine('vue', (filePath, options, callback) => {
+  const { render } = vueTemplateCompiler.compile(options);
+  return callback(null, render);
 });
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'vue');
 
+const loginModal = require("./components/loginModal.vue").default;
+app.component("login-modal", loginModal);
 
 // Set view engine to use EJS
 app.set("view engine", "ejs");
@@ -26,105 +35,130 @@ app.use("/api", cartRoutes);
 
 // Middleware
 app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.static(path.join(__dirname, "views")));
-app.use(express.static('/views/ejs', {
-  setHeaders: (res, path) => {
-    res.setHeader('Content-Type', mime.getType(path));
-  }
-}));
-app.use(express.static('public', {
-  setHeaders: (res, path) => {
-    res.setHeader('Content-Type', mime.getType(path));
-  }
-}));
-app.use('/vegas', express.static(path.join(__dirname, 'vegas')));
+app.use(
+  express.static("/views/ejs", {
+    setHeaders: (res, path) => {
+      res.setHeader("Content-Type", mime.getType(path));
+    },
+  })
+);
+app.use(
+  express.static("public", {
+    setHeaders: (res, path) => {
+      res.setHeader("Content-Type", mime.getType(path));
+    },
+  })
+);
+app.use("/vegas", express.static(path.join(__dirname, "vegas")));
+app.use(express.static("components"));
 
-
-//MIME FIXES
-app.get('/css/styles.css', (req, res) => {
-  res.set('Content-Type', mime.getType('css'));
-  res.sendFile(path.join(__dirname, 'css', 'styles.css'));
+// MIME FIXES
+app.get("/css/styles.css", (req, res) => {
+  res.set("Content-Type", mime.getType("css"));
+  res.sendFile(path.join(__dirname, "css", "styles.css"));
 });
 
-app.get('/vegas.min.js', (req, res) => {
-  res.set('Content-Type', 'application/javascript');
-  res.sendFile(path.join(__dirname, 'vegas', 'vegas.min.js'));
+app.get("/vegas.min.js", (req, res) => {
+  res.set("Content-Type", "application/javascript");
+  res.sendFile(path.join(__dirname, "vegas", "vegas.min.js"));
 });
 
-app.get('/vegas.min.css', (req, res) => {
-  res.set('Content-Type', 'text/css');
-  res.sendFile(path.join(__dirname, 'vegas', 'vegas.min.css'));
+app.get("/vegas.min.css", (req, res) => {
+  res.set("Content-Type", "text/css");
+  res.sendFile(path.join(__dirname, "vegas", "vegas.min.css"));
 });
 
-app.get('/public/images/:filename', (req, res) => {
+app.get("/public/images/:filename", (req, res) => {
   const { filename } = req.params;
-  const filePath = path.join(__dirname, 'public', 'images', filename);
+  const filePath = path.join(__dirname, "public", "images", filename);
   const contentType = mime.getType(filePath);
-  res.setHeader('Content-Type', contentType);
+  res.setHeader("Content-Type", contentType);
   res.sendFile(filePath);
 });
 
-
 // Set up views directory
-app.set("views", path.join(__dirname, "views"));
+app.set("views", [
+  path.join(__dirname, "views"),
+  path.join(__dirname, "views", "ejs"),
+]);
 
 // Homepage route
 app.get("/", (req, res) => {
-  res.render("home");
+  res.render("home", { user: req.user });
 });
 
-// Products page route
-app.get("/products", (req, res) => {
-  res.render("products");
-});
+// // Products page route
+// app.get("/products", (req, res) => {
+//   res.render("products", { user: req.user });
+// });
 
 // Cart page route
 app.get("/cart", (req, res) => {
-  res.render("cart");
+  res.render("cart", { user: req.user });
 });
 
 // Routes for products API
 app.use("/api/products", productsRouter);
 
 // User registration route
-app.post("/users", (req, res) => {
-  const { email, password, firstName, lastName } = req.body;
+app.post("/users", async (req, res) => {
+const { email, password, firstName, lastName } = req.body;
+try {
+const user = await register(email, password, firstName, lastName);
+res.status(201).json({ message: "User created successfully", user });
+} catch (error) {
+res.status(500).json({ message: "An error occurred while creating user" });
+}
+});
 
-  const newUser = new User({
-    email,
-    password,
-    firstName,
-    lastName,
-  });
-  newUser
-    .save()
-    .then(() => {
-      res.status(201).json({ message: "User created successfully" });
-    })
-    .catch((error) => {
-      res
-        .status(500)
-        .json({ message: "An error occurred while creating user", error });
-    });
+// User login route
+app.post("/login", async (req, res) => {
+const { email, password } = req.body;
+try {
+const user = await login(email, password);
+const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
+res.cookie("jwt", token, { httpOnly: true });
+res.status(200).json({ message: "Logged in successfully", user });
+} catch (error) {
+res.status(400).json({ message: "Invalid email or password" });
+}
+});
+
+// User logout route
+app.get("/logout", (req, res) => {
+res.clearCookie("jwt");
+res.redirect("/");
+});
+
+// Error handling for 404 route
+app.use((req, res, next) => {
+res.status(404).render("404");
+});
+
+// Error handling middleware
+app.use((err, req, res, next) => {
+console.error(err.stack);
+res.status(500).send("Something went wrong!");
 });
 
 // Connect to MongoDB Atlas and start server
 mongoose
-  .connect(
-    "mongodb+srv://j:jvb123@project2.p88qgof.mongodb.net/?retryWrites=true&w=majority",
-    {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    }
-  )
-  .then(() => {
-    console.log("Database connected!");
-    app.listen(PORT, () => {
-      console.log(`Server started on port ${PORT}`);
-    });
-  })
-  .catch((err) => {
-    console.error("Error connecting to database", err);
-  });
+.connect(process.env.MONGODB_URI, {
+useNewUrlParser: true,
+useUnifiedTopology: true,
+dbName: process.env.DB_NAME
+})
+.then(() => {
+console.log("Database connected!");
+app.listen(PORT, () => {
+console.log(Server started on port ${PORT});
+});
+})
+.catch((err) => {
+console.error("Error connecting to database", err);
+});
 
+module.exports = app;

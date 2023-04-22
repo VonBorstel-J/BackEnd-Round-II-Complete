@@ -67,7 +67,7 @@ router.post("/", isAdmin, async (req, res) => {
   try {
     const product = new Product(req.body);
     await product.save();
-    res.status(201).json(product);
+    res.status(201).json({ product: product });
   } catch (err) {
     console.error(err);
     res.status(500).send("Server Error");
@@ -83,7 +83,7 @@ router.put("/:id", async (req, res) => {
     if (!product) {
       return res.status(404).send("Product not found");
     }
-    res.json(product);
+    res.json({ product: product });
   } catch (err) {
     console.error(err);
     res.status(500).send("Server Error");
@@ -97,7 +97,7 @@ router.delete("/:id", async (req, res) => {
     if (!product) {
       return res.status(404).send("Product not found");
     }
-    res.json(product);
+    res.json({ product: product });
   } catch (err) {
     console.error(err);
     res.status(500).send("Server Error");

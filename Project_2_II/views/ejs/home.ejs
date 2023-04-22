@@ -10,44 +10,46 @@
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
       crossorigin="anonymous"
     />
-    <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <!-- Vegas JS -->
-    <script src="/vegas/vegas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.3/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/js/bootstrap.min.js"></script>
     <!-- Custom CSS -->
     <link rel="stylesheet" href="/css/styles.css" />
-    <link rel="stylesheet" href="/vegas/vegas.min.css" />
     <!-- Font Awesome -->
     <link
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
       crossorigin="anonymous"
     />
+    <!-- Vegas JS -->
+    <link rel="stylesheet" href="/vegas/vegas.min.css" />
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-16x16.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-32x32.png" />
+    <script src="/components/loginModal.vue"></script>
   </head>
   <body>
-  
     <%- include('./header') %>
+
     <!-- Hero Section -->
     <main>
-        <section id="hero" class="container-fluid py-5">
-            <div class="row align-items-center">
-              <div class="col-md-6 text-center text-md-start">
-                <h1 class="display-2 mb-3">Discover Your Next Favorite Product</h1>
-                <p class="lead mb-4">
-                  Explore our hand-picked selection of the latest and greatest products.
-                </p>
-                <a href="/products" class="btn btn-primary btn-lg">
-                  View Our Products
-                </a>
-              </div>
-              <div class="col-md-6">
-                <div
-                  class="hero-image"
-                  style="background-image: url('');"
-                ></div>
-              </div>
-            </div>
-          </section>
+      <section id="hero" class="container-fluid py-5">
+        <div class="row align-items-center">
+          <div class="col-md-6 text-center text-md-start">
+            <h1 class="display-2 mb-3">Discover Your Next Favorite Product</h1>
+            <p class="lead mb-4">
+              Explore our hand-picked selection of the latest and greatest
+              products.
+            </p>
+            <a href="/products" class="btn btn-primary btn-lg">
+              View Our Products
+            </a>
+          </div>
+          <div class="col-md-6">
+            <div class="hero-image" style="background-image: url('')"></div>
+          </div>
+        </div>
+      </section>
 
       <!-- Services Section -->
       <section id="services" class="container my-5">
@@ -89,11 +91,16 @@
         </div>
       </section>
 
+      <!-- About Section -->
       <section id="about" class="container my-5">
         <h2 class="text-center mb-5">About Us</h2>
         <div class="row">
           <div class="col-md-6">
-            <img src="/public/images/kids.jpg" alt="About Us" class="img-fluid rounded" />
+            <img
+              src="/public/images/kids.jpg"
+              alt="About Us"
+              class="img-fluid rounded"
+            />
           </div>
           <div class="col-md-6 my-auto">
             <p class="lead">
@@ -114,22 +121,17 @@
         </div>
       </section>
     </main>
-<!-- 
-    <footer class="bg-light py-3">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12 text-center">
-            <p>&copy; 2023 Product Catalog. For Presentation Purposes ONLY.</p>
-          </div>
-        </div>
-      </div>
-    </footer> -->
 
-    <%- include('./footer'); %>
+    <% include('./footer') %>
 
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios@0.21.1"></script>
+    <script src="/vegas/vegas.min.js"></script>
+    <script src="/js/main.js"></script>
   </body>
 </html>
-
 <script>
   $(function () {
     $("#hero").vegas({

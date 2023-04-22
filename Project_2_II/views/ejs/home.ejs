@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Catalog</title>
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      crossorigin="anonymous"
+    />
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Vegas JS -->
+    <script src="/vegas/vegas.min.js"></script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" href="/vegas/vegas.min.css" />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+  
+    <%- include('./header') %>
+    <!-- Hero Section -->
+    <main>
+        <section id="hero" class="container-fluid py-5">
+            <div class="row align-items-center">
+              <div class="col-md-6 text-center text-md-start">
+                <h1 class="display-2 mb-3">Discover Your Next Favorite Product</h1>
+                <p class="lead mb-4">
+                  Explore our hand-picked selection of the latest and greatest products.
+                </p>
+                <a href="/products" class="btn btn-primary btn-lg">
+                  View Our Products
+                </a>
+              </div>
+              <div class="col-md-6">
+                <div
+                  class="hero-image"
+                  style="background-image: url('');"
+                ></div>
+              </div>
+            </div>
+          </section>
+
+      <!-- Services Section -->
+      <section id="services" class="container my-5">
+        <h2 class="text-center mb-5">Our Services</h2>
+        <div class="row">
+          <div class="col-md-4 mb-4">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Fast Shipping</h5>
+                <p class="card-text">
+                  We offer fast and reliable shipping to get your products to
+                  you as soon as possible.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Quality Products</h5>
+                <p class="card-text">
+                  We source only the highest quality products from trusted
+                  suppliers to ensure your satisfaction.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Excellent Customer Service</h5>
+                <p class="card-text">
+                  Our dedicated customer service team is always available to
+                  answer your questions and help you find what you need.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="container my-5">
+        <h2 class="text-center mb-5">About Us</h2>
+        <div class="row">
+          <div class="col-md-6">
+            <img src="/public/images/kids.jpg" alt="About Us" class="img-fluid rounded" />
+          </div>
+          <div class="col-md-6 my-auto">
+            <p class="lead">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
+              accumsan, urna sed ultricies euismod, massa purus bibendum metus,
+              vel ultricies ex metus at justo. Praesent in consectetur risus.
+            </p>
+            <p>
+              Morbi vel est id est finibus placerat. Suspendisse consectetur
+              suscipit aliquam. Suspendisse faucibus quam ut elit vestibulum,
+              vel fermentum libero efficitur. Vivamus pellentesque, erat nec
+              varius efficitur, magna mauris hendrerit elit, ac dictum libero
+              sapien sit amet neque. Etiam tempor elementum mi, vel iaculis
+              neque eleifend eget. Fusce lobortis ipsum eu orci varius, at
+              congue velit dignissim.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+<!-- 
+    <footer class="bg-light py-3">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <p>&copy; 2023 Product Catalog. For Presentation Purposes ONLY.</p>
+          </div>
+        </div>
+      </div>
+    </footer> -->
+
+    <%- include('./footer'); %>
+
+  </body>
+</html>
+
+<script>
+  $(function () {
+    $("#hero").vegas({
+      slides: [
+        { src: "./images/domino-164_6wVEHfI-unsplash.jpg" },
+        { src: "./images/ivan-kazlouskij--YPtL-U6_MA-unsplash.jpg" },
+        { src: "./images/keagan-henman-ZqXXVeRCyZ0-unsplash.jpg" },
+        { src: "./images/tamanna-rumee-lpGm415q9JA-unsplash.jpg" },
+      ],
+      delay: 5000,
+      timer: true,
+      transition: "kenburns",
+    });
+  });
+</script>

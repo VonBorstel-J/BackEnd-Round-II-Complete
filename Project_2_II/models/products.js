@@ -1,7 +1,6 @@
-
 const express = require('express');
 const router = express.Router();
-
+const Product = require('../models/products'); // require the Product model
 
 // Get all products
 router.get('/', async (req, res) => {
@@ -30,7 +29,10 @@ router.post('/', async (req, res) => {
 });
 
 module.exports = router;
-const mongoose = require('mongoose');
+
+
+
+// const mongoose = require('mongoose');
 
 
 

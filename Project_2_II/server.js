@@ -154,7 +154,7 @@ dbName: process.env.DB_NAME
 .then(() => {
 console.log("Database connected!");
 app.listen(PORT, () => {
-console.log(Server started on port ${PORT});
+console.log('Server started on port ${PORT}');
 });
 })
 .catch((err) => {

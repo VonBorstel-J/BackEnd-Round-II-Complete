@@ -2,6 +2,14 @@ const express = require("express");
 const router = express.Router();
 const Product = require("../models/products");
 
+//Admin Support
+const isAdmin = (req, res, next) => {
+  if (!req.user || !req.user.isAdmin) {
+    return res.status(401).send("Unauthorized");
+  }
+  next();
+};
+
 // Get all products
 router.get("/", async (req, res) => {
   try {
@@ -49,8 +57,13 @@ router.get("/:id", async (req, res) => {
   }
 });
 
+// Create a new product page
+router.get("/add", isAdmin, (req, res) => {
+  res.render("add-product");
+});
+
 // Create a new product
-router.post("/", async (req, res) => {
+router.post("/", isAdmin, async (req, res) => {
   try {
     const product = new Product(req.body);
     await product.save();

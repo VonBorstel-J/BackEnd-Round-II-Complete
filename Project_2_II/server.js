@@ -8,6 +8,7 @@ const productsRouter = require("./routes/productRoutes");
 const cartRoutes = require("./routes/cartRoutes.js");
 const Product = require("./models/products");
 
+app.set('view engine', 'ejs');
 app.use("/api", cartRoutes);
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "public")));
@@ -15,6 +16,16 @@ app.use(express.static(path.join(__dirname, "/views")));
 
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "views", "home.html"));
+});
+
+app.get('/', (req, res) => {
+  res.render('partials');
+  res.render('layout');
+  res.render('add-product');
+});
+
+app.get('/', (req, res) => {
+  res.redirect('/home.html');
 });
 
 app.get("/products", (req, res) => {
@@ -90,3 +101,7 @@ app.use((err, req, res, next) => {
   res.status(500).send("Something went wrong!");
 });
 
+// Start the server
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});

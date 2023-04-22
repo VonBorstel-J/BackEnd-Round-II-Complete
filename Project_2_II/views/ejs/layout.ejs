@@ -1,0 +1,14 @@
+<nav>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/products">Products</a></li>
+      <% if (user && user.isAdmin) { %>
+      <li><a href="/products/add">Add Product</a></li>
+      <% } %>
+      <% if (user) { %>
+      <li><a href="/logout">Logout</a></li>
+      <% } else { %>
+      <li><a href="/login">Login</a></li>
+      <% } %>
+    </ul>
+  </nav>

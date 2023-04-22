@@ -1,0 +1,22 @@
+/* Mixin for creating a linear gradient background */
+    @mixin bg-gradient($direction, $start-color, $end-color) {
+    background: $start-color;
+    background: linear-gradient($direction, $start-color, $end-color);
+    }
+    
+    /* Mixin for creating a box-shadow effect */
+    @mixin box-shadow($x, $y, $blur, $spread, $color) {
+    box-shadow: $x $y $blur $spread $color;
+    }
+    
+    /* Mixin for creating a border-radius */
+    @mixin border-radius($radius) {
+    border-radius: $radius;
+    }
+    
+    /* Mixin for creating a media query */
+    @mixin media-query($size) {
+    @media only screen and (max-width: $size) {
+    @content;
+    }
+    }

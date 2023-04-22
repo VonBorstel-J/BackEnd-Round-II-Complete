@@ -1,0 +1,273 @@
+/* Define the base color and its variations */
+/* Define the base color and its variations */
+/* Define the accent color */
+/* Define the text color */
+/* Define font families */
+/* Global styles */
+html, body {
+  height: 100%;
+  font-size: 16px;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  line-height: 1.5;
+  background-color: #1f1f1f;
+  color: #fff;
+  overflow-x: hidden;
+}
+
+a {
+  color: #ff6d00;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+.btn {
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 3rem;
+  transition: all 0.3s ease-in-out;
+}
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #ff6d00;
+  border-color: #ff6d00;
+}
+.btn-primary:hover {
+  color: #fff;
+  background-color: #cc5700;
+  border-color: #cc5700;
+}
+
+.btn-secondary {
+  color: #2e2e2e;
+  background-color: #0c0c0c;
+  border-color: #0c0c0c;
+}
+.btn-secondary:hover {
+  color: #2e2e2e;
+  background-color: black;
+  border-color: black;
+}
+
+/* Navbar styles */
+.navbar {
+  background-color: rgba(51, 51, 51, 0.8);
+  box-shadow: 0 2px 2px rgba(255, 255, 255, 0.1);
+  padding: 1rem 0;
+}
+.navbar .navbar-brand {
+  font-family: "Montserrat", sans-serif;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #ff6d00;
+}
+.navbar .navbar-brand:hover {
+  color: #cc5700;
+}
+.navbar .nav-link {
+  font-weight: bold;
+  color: #fff;
+}
+.navbar .nav-link:hover {
+  color: white;
+}
+.navbar .nav-link.active {
+  color: #ff6d00;
+  font-weight: bold;
+  border-bottom: 2px solid #ff6d00;
+}
+.navbar .form-control {
+  background-color: #fff;
+  color: #0c0c0c;
+  border: none;
+  border-radius: 2rem;
+  margin-right: 1rem;
+}
+.navbar .btn-outline-light {
+  border-color: #fff;
+  border-radius: 2rem;
+  transition: background-color 0.3s ease-in-out;
+}
+.navbar .btn-outline-light:hover {
+  background-color: #fff;
+  color: #0c0c0c;
+}
+.navbar .navbar-toggler-icon {
+  background-image: url('data:image/svg+xml;charset=utf-8,%3Csvg viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath stroke="%23fff" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" d="M4 7h22M4 15h22M4 23h22" /%3E%3C/svg%3E');
+}
+.navbar .ml-3 {
+  margin-left: 1rem;
+}
+.navbar .navbar-nav:last-child {
+  margin-left: auto;
+}
+
+/* Define the hero background image */
+/* Define the hero overlay color */
+/* Define the hero CTA button color */
+/* Hero section styles */
+#hero {
+  height: 60vh;
+  background-image: url("/img/hero.jpg");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+#hero .hero-image {
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/img/hero.jpg");
+  background-size: cover;
+  background-position: center;
+}
+#hero h1 {
+  font-size: 4rem;
+  font-weight: bold;
+  color: #fff;
+}
+#hero p {
+  font-size: 1.5rem;
+  color: #fff;
+}
+#hero .btn-primary {
+  background-color: #ff6d00;
+  border-color: #ff6d00;
+}
+#hero .btn-primary:hover {
+  background-color: #cc5700;
+  border-color: #cc5700;
+}
+#hero #services {
+  padding: 10rem 0;
+  background-color: #2e2e2e;
+}
+#hero #services h2 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 3rem;
+  color: #1f1f1f;
+}
+#hero #services #about {
+  background: url("/img/about-bg.jpg") no-repeat center center fixed;
+  background-size: cover;
+  filter: grayscale(100%);
+  padding: 5rem 0;
+  color: #fff;
+}
+#hero #services #services h2 {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+#hero #services #services .service-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+  position: relative;
+  transition: transform 0.3s ease-in-out;
+  cursor: pointer;
+}
+#hero #services #services .service-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+}
+#hero #services #services .service-item:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.8);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+#hero #services #services .service-item:hover:before {
+  opacity: 1;
+}
+#hero #services #services .service-item i {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: #0c0c0c;
+}
+#hero #services #services .service-item h3 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+#hero #services #services .service-item p {
+  text-align: center;
+  font-size: 1rem;
+  margin-bottom: 0;
+}
+#hero #services footer {
+  background-color: #2e2e2e;
+  color: #0c0c0c;
+  padding: 3rem 0;
+  text-align: center;
+}
+#hero #services footer .social-icons {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+#hero #services footer .social-icons a {
+  font-size: 1.5rem;
+  margin: 0 1rem;
+  color: #0c0c0c;
+  transition: transform 0.3s ease-in-out;
+}
+#hero #services footer .social-icons a:hover {
+  transform: scale(1.2);
+}
+#hero #services footer p {
+  font-size: 1rem;
+  margin-bottom: 0;
+}
+
+.navbar {
+  background-color: #333;
+  font-family: "Montserrat", sans-serif;
+}
+.navbar-brand {
+  font-weight: bold;
+}
+.navbar-nav .nav-link {
+  color: #fff;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  margin-right: 1rem;
+  transition: color 0.3s ease-in-out;
+}
+.navbar-nav .nav-link:hover {
+  color: #ff6d00;
+}
+.navbar .form-control {
+  background-color: #fff;
+  color: #333;
+  border: none;
+  border-radius: 2rem;
+  margin-right: 1rem;
+}
+.navbar .btn-outline-light {
+  border-color: #fff;
+  border-radius: 2rem;
+  transition: background-color 0.3s ease-in-out;
+}
+.navbar .btn-outline-light:hover {
+  background-color: #fff;
+  color: #333;
+}
+.navbar .navbar-toggler-icon {
+  background-image: url('data:image/svg+xml;charset=utf-8,%3Csvg viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath stroke="%23fff" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" d="M4 7h22M4 15h22M4 23h22" /%3E%3C/svg%3E');
+}/*# sourceMappingURL=styles.css.map */

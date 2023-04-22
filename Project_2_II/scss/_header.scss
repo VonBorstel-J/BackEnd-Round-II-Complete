@@ -1,0 +1,51 @@
+// navbar background color and font
+.navbar {
+  background-color: #333; // example color, change to your preference
+  font-family: "Montserrat", sans-serif; // example font, change to your preference
+
+  // navbar brand
+  &-brand {
+    font-weight: bold;
+  }
+
+  // navbar links
+  &-nav {
+    .nav-link {
+      color: #fff; // example color, change to your preference
+      font-size: 1.2rem; // example size, change to your preference
+      text-transform: uppercase;
+      margin-right: 1rem; // example spacing, change to your preference
+      transition: color 0.3s ease-in-out;
+
+      &:hover {
+        color: #ff6d00; // example color, change to your preference
+      }
+    }
+  }
+
+  // search bar
+  .form-control {
+    background-color: #fff; // example color, change to your preference
+    color: #333; // example color, change to your preference
+    border: none;
+    border-radius: 2rem; // example radius, change to your preference
+    margin-right: 1rem; // example spacing, change to your preference
+  }
+
+  // search button
+  .btn-outline-light {
+    border-color: #fff; // example color, change to your preference
+    border-radius: 2rem; // example radius, change to your preference
+    transition: background-color 0.3s ease-in-out;
+
+    &:hover {
+      background-color: #fff; // example color, change to your preference
+      color: #333; // example color, change to your preference
+    }
+  }
+
+  // hamburger menu
+  .navbar-toggler-icon {
+    background-image: url('data:image/svg+xml;charset=utf-8,%3Csvg viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath stroke="%23fff" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" d="M4 7h22M4 15h22M4 23h22" /%3E%3C/svg%3E');
+  }
+}

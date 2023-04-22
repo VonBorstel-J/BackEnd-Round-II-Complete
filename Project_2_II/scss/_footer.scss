@@ -1,0 +1,31 @@
+/* Footer section styles */
+
+footer {
+    background-color: $light-color;
+    color: $dark-color;
+    padding: 3rem 0;
+    text-align: center;
+  
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 2rem;
+  
+      a {
+        font-size: 1.5rem;
+        margin: 0 1rem;
+        color: $dark-color;
+        transition: transform 0.3s ease-in-out;
+  
+        &:hover {
+          transform: scale(1.2);
+        }
+      }
+    }
+  
+    p {
+      font-size: 1rem;
+      margin-bottom: 0;
+    }
+  }
+  

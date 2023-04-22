@@ -1,0 +1,96 @@
+/* Global styles */
+html, body {
+    height: 100%;
+    font-size: 16px;
+  }
+  
+  body {
+    font-family: $body-font;
+    line-height: 1.5;
+    background-color: $base-color;
+    color: $text-color;
+    overflow-x: hidden;
+  }
+  
+  a {
+    color: $accent-color;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  
+  .btn {
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 3rem;
+    transition: all 0.3s ease-in-out;
+    &:hover {
+      transform: translateY(-2px);
+    }
+  }
+  
+  .btn-primary {
+    color: #fff;
+    background-color: $accent-color;
+    border-color: $accent-color;
+    &:hover {
+      color: #fff;
+      background-color: darken($accent-color, 10%);
+      border-color: darken($accent-color, 10%);
+    }
+  }
+  
+  .btn-secondary {
+    color: $light-color;
+    background-color: $dark-color;
+    border-color: $dark-color;
+    &:hover {
+      color: $light-color;
+      background-color: darken($dark-color, 10%);
+      border-color: darken($dark-color, 10%);
+    }
+  }
+  
+  /* Define the hero background image */
+  $hero-bg: url('/img/hero.jpg');
+  
+  /* Define the hero overlay color */
+  $hero-overlay: rgba(0, 0, 0, 0.5);
+  
+  /* Define the hero CTA button color */
+  $hero-cta: $accent-color;
+  
+  /* Hero section styles */
+  #hero {
+    height: 60vh;
+    background-image: $hero-bg;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    .hero-image {
+      background-image: linear-gradient(to bottom, $hero-overlay, $hero-overlay), $hero-bg;
+      background-size: cover;
+      background-position: center;
+      // height: 100%;
+    }
+    h1 {
+      font-size: 4rem;
+      font-weight: bold;
+      color: $text-color;
+    }
+    p {
+      font-size: 1.5rem;
+      color: $text-color;
+    }
+    .btn-primary {
+      background-color: $hero-cta;
+      border-color: $hero-cta;
+      &:hover {
+        background-color: darken($hero-cta, 10%);
+        border-color: darken($hero-cta, 10%);
+      }
+    }
+  }
+  

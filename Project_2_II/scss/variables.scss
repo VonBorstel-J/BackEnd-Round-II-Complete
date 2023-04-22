@@ -1,0 +1,28 @@
+/* Define the base color and its variations */
+$base-color: #1f1f1f;
+$light-color: #2e2e2e;
+$dark-color: #0c0c0c;
+
+/* Define the accent color */
+$accent-color: #ff6d00;
+
+/* Define the text color */
+$text-color: #fff;
+
+/* Define font families */
+$heading-font: 'Montserrat', sans-serif;
+$body-font: 'Open Sans', sans-serif;
+
+/* Define breakpoint sizes */
+$mobile: 576px;
+$tablet: 768px;
+$desktop: 992px;
+$large-desktop: 1200px;
+
+/* Define spacing units */
+$spacing-unit: 1rem;
+
+/* Define container sizes */
+$container-small: 90%;
+$container-medium: 70%;
+$container-large: 50%;

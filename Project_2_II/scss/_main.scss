@@ -1,3 +1,5 @@
+@import 'variables';
+
 /* Global styles */
 html, body {
     height: 100%;
@@ -5,7 +7,7 @@ html, body {
   }
   
   body {
-    font-family: $body-font;
+    font-family: $body-font; 
     line-height: 1.5;
     background-color: $base-color;
     color: $text-color;
@@ -22,8 +24,8 @@ html, body {
   
   .btn {
     font-size: 1rem;
-    font-weight: bold;
-    text-transform: uppercase;
+    font-weight: bold;    
+    text-transform: uppercase; 
     border-radius: 3rem;
     transition: all 0.3s ease-in-out;
     &:hover {
@@ -93,4 +95,50 @@ html, body {
       }
     }
   }
+  section#services {
+    h2.text-center.mb-5 {
+      color: #ff6d00;
+      font-size: 5rem;
+      font-weight: bolder;
+    }
+    div.row {
+      div.col-md-4.mb-4 {
+        div.card {
+          div.card-body {
+            h5.card-title {
+              color: #ff6d00;
+              font-size: 2rem;
+              font-weight: bold;
+            }
+            p.card-text {
+              color: #000000;
+              font-size: 1.2rem;
+              line-height: 1.5;
+            }
+          }
+        }
+      }
+    }
+  }
   
+  section#about {
+    h2.text-center.mb-5 {
+      color: #fff;
+      font-size: 3rem;
+    }
+    div.row {
+      div.col-md-6.my-auto {
+        p.lead {
+          color: #ff6d00;
+          font-size: 1.8rem;
+          font-weight: bold;
+          line-height: 1.5;
+        }
+        p {
+          color: #ffffff;
+          font-size: 1.2rem;
+          line-height: 1.5;
+        }
+      }
+    }
+  }

@@ -10,7 +10,7 @@ const Product = require("./models/products");
 
 app.use("/api", cartRoutes);
 app.use(express.json());
-app.use(express.static(path.join(__dirname, "/public")));
+app.use(express.static(path.join(__dirname, "public")));
 app.use(express.static(path.join(__dirname, "/views")));
 
 app.get("/", (req, res) => {
@@ -89,3 +89,4 @@ app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(500).send("Something went wrong!");
 });
+

@@ -110,7 +110,8 @@
           </button>
         </div>
         <div class="modal-body">
-          <login-modal></login-modal>
+          <div id="login-modal-app">
+            <login-modal v-if="showLoginModal" @close="showLoginModal = false"></login-modal>
         </div>
       </div>
     </div>

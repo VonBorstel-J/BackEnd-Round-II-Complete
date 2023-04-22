@@ -24,13 +24,126 @@
     <!-- Vegas JS -->
     <link rel="stylesheet" href="/vegas/vegas.min.css" />
     <!-- Favicon -->
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-16x16.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-32x32.png" />
+    <link rel="icon" type="favicon-32x32.png" sizes="32x32" href="/favicon-16x16.png" />
+    <link rel="icon" type="favicon-16x16.png" sizes="16x16" href="/favicon-32x32.png" />
     <script src="/components/loginModal.vue"></script>
   </head>
   <body>
     <%- include('./header') %>
+    <div id="login-modal-app">
+      <!-- Button to open modal -->
+      <button class="btn btn-primary" @click="showModal = true">
+        Login/Sign Up
+      </button>
+      <!-- Modal -->
+      <div
+        class="modal"
+        tabindex="-1"
+        role="dialog"
+        :class="{ 'is-active': showModal }"
+      >
+        <div class="modal-background"></div>
+        <div class="modal-card">
+          <header class="modal-card-head">
+            <p class="modal-card-title">{{ modalTitle }}</p>
+            <button
+              class="delete"
+              aria-label="close"
+              @click="showModal = false"
+            ></button>
+          </header>
+          <section class="modal-card-body">
+            <!-- Login form -->
+            <form v-if="isLogin" @submit.prevent="login">
+              <div class="field">
+                <label class="label">Email</label>
+                <div class="control">
+                  <input class="input" type="email" v-model="email" required />
+                </div>
+              </div>
+              <div class="field">
+                <label class="label">Password</label>
+                <div class="control">
+                  <input
+                    class="input"
+                    type="password"
+                    v-model="password"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="field">
+                <div class="control">
+                  <button class="button is-link" type="submit">Login</button>
+                </div>
+              </div>
+              <div class="field">
+                <p class="has-text-grey">
+                  <a @click="isLogin = false"
+                    >Don't have an account? Sign up here.</a
+                  >
+                </p>
+              </div>
+            </form>
 
+            <!-- Sign up form -->
+            <form v-else @submit.prevent="signup">
+              <div class="field">
+                <label class="label">First Name</label>
+                <div class="control">
+                  <input
+                    class="input"
+                    type="text"
+                    v-model="firstName"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="field">
+                <label class="label">Last Name</label>
+                <div class="control">
+                  <input
+                    class="input"
+                    type="text"
+                    v-model="lastName"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="field">
+                <label class="label">Email</label>
+                <div class="control">
+                  <input class="input" type="email" v-model="email" required />
+                </div>
+              </div>
+              <div class="field">
+                <label class="label">Password</label>
+                <div class="control">
+                  <input
+                    class="input"
+                    type="password"
+                    v-model="password"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="field">
+                <div class="control">
+                  <button class="button is-link" type="submit">Sign up</button>
+                </div>
+              </div>
+              <div class="field">
+                <p class="has-text-grey">
+                  <a @click="isLogin = true"
+                    >Already have an account? Log in here.</a
+                  >
+                </p>
+              </div>
+            </form>
+          </section>
+        </div>
+      </div>
+    </div>
     <!-- Hero Section -->
     <main>
       <section id="hero" class="container-fluid py-5">
@@ -46,7 +159,7 @@
             </a>
           </div>
           <div class="col-md-6">
-            <div class="hero-image" style="background-image: url('')"></div>
+            <div class="hero-image"></div>
           </div>
         </div>
       </section>
@@ -125,25 +238,83 @@
     <% include('./footer') %>
 
     <!-- Scripts -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios@0.21.1"></script>
     <script src="/vegas/vegas.min.js"></script>
-    <script src="/js/main.js"></script>
+    <script src="https://unpkg.com/vue@2.6.14"></script>
+
+    <script>
+      $(function () {
+        $("#hero").vegas({
+          slides: [
+            { src: "./images/domino-164_6wVEHfI-unsplash.jpg" },
+            { src: "./images/ivan-kazlouskij--YPtL-U6_MA-unsplash.jpg" },
+            { src: "./images/keagan-henman-ZqXXVeRCyZ0-unsplash.jpg" },
+            { src: "./images/tamanna-rumee-lpGm415q9JA-unsplash.jpg" },
+          ],
+          delay: 5000,
+          timer: true,
+          transition: "kenburns",
+        });
+      });
+    </script>
+    <script>
+      const { createApp, ref } = Vue;
+
+      const loginModalApp = {
+        setup() {
+          const showModal = ref(false);
+          const isLogin = ref(true);
+          const email = ref("");
+          const password = ref("");
+          const firstName = ref("");
+          const lastName = ref("");
+
+          const login = async () => {
+            try {
+              const response = await axios.post("/api/users/login", {
+                email: email.value,
+                password: password.value,
+              });
+              localStorage.setItem("token", response.data.token);
+              window.location.reload();
+            } catch (error) {
+              alert("Invalid email or password");
+            }
+          };
+
+          const signup = async () => {
+            try {
+              await axios.post("/users", {
+                email: email.value,
+                password: password.value,
+                firstName: firstName.value,
+                lastName: lastName.value,
+              });
+              const response = await axios.post("/api/users/login", {
+                email: email.value,
+                password: password.value,
+              });
+              localStorage.setItem("token", response.data.token);
+              window.location.reload();
+            } catch (error) {
+              alert("An error occurred while signing up");
+            }
+          };
+
+          return {
+            showModal,
+            isLogin,
+            email,
+            password,
+            firstName,
+            lastName,
+            login,
+            signup,
+          };
+        },
+      };
+
+      createApp(loginModalApp).mount("#login-modal-app");
+    </script>
   </body>
 </html>
-<script>
-  $(function () {
-    $("#hero").vegas({
-      slides: [
-        { src: "./images/domino-164_6wVEHfI-unsplash.jpg" },
-        { src: "./images/ivan-kazlouskij--YPtL-U6_MA-unsplash.jpg" },
-        { src: "./images/keagan-henman-ZqXXVeRCyZ0-unsplash.jpg" },
-        { src: "./images/tamanna-rumee-lpGm415q9JA-unsplash.jpg" },
-      ],
-      delay: 5000,
-      timer: true,
-      transition: "kenburns",
-    });
-  });
-</script>

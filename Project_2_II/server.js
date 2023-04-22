@@ -9,23 +9,17 @@ const path = require("path");
 const productsRouter = require("./routes/productRoutes");
 const cartRoutes = require("./routes/cartRoutes.js");
 const Product = require("./models/products");
-const Vue = require('vue');
-const renderer = require('vue-server-renderer').createRenderer();
-const { createBundleRenderer } = require('vue-server-renderer');
-const vueTemplateCompiler = require('vue-template-compiler');
-const { createSSRApp } = require('vue')
-const { renderToString } = require('@vue/server-renderer')
+const axios = require('axios');
+const { createSSRApp } = require("vue");
+const { renderToString } = require("@vue/server-renderer");
 
-// Compile Vue.js templates
-app.engine('vue', (filePath, options, callback) => {
-  const { render } = vueTemplateCompiler.compile(options);
-  return callback(null, render);
-});
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'vue');
+require("dotenv").config();
 
-const loginModal = require("./components/loginModal.vue").default;
-app.component("login-modal", loginModal);
+if (!process.env.MONGODB_URI) {
+  console.error("MongoDB URI not found. Please check your .env file");
+  process.exit(1);
+}
+
 
 // Set view engine to use EJS
 app.set("view engine", "ejs");
@@ -86,14 +80,20 @@ app.set("views", [
 ]);
 
 // Homepage route
-app.get("/", (req, res) => {
-  res.render("home", { user: req.user });
-});
+app.get("/", async (req, res) => {
+  try {
+    const app = createSSRApp({
+      data: () => ({ msg: "hello" }),
+      template: `<div>{{ msg }}</div>`,
+    });
 
-// // Products page route
-// app.get("/products", (req, res) => {
-//   res.render("products", { user: req.user });
-// });
+    const html = await renderToString(app);
+    res.render("home", { html });
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Something went wrong!");
+  }
+});
 
 // Cart page route
 app.get("/cart", (req, res) => {
@@ -105,60 +105,62 @@ app.use("/api/products", productsRouter);
 
 // User registration route
 app.post("/users", async (req, res) => {
-const { email, password, firstName, lastName } = req.body;
-try {
-const user = await register(email, password, firstName, lastName);
-res.status(201).json({ message: "User created successfully", user });
-} catch (error) {
-res.status(500).json({ message: "An error occurred while creating user" });
-}
-});
-
-// User login route
-app.post("/login", async (req, res) => {
-const { email, password } = req.body;
-try {
-const user = await login(email, password);
-const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
-res.cookie("jwt", token, { httpOnly: true });
-res.status(200).json({ message: "Logged in successfully", user });
-} catch (error) {
-res.status(400).json({ message: "Invalid email or password" });
-}
-});
-
-// User logout route
-app.get("/logout", (req, res) => {
-res.clearCookie("jwt");
-res.redirect("/");
-});
-
-// Error handling for 404 route
-app.use((req, res, next) => {
-res.status(404).render("404");
-});
-
-// Error handling middleware
-app.use((err, req, res, next) => {
-console.error(err.stack);
-res.status(500).send("Something went wrong!");
-});
-
-// Connect to MongoDB Atlas and start server
-mongoose
-.connect(process.env.MONGODB_URI, {
-useNewUrlParser: true,
-useUnifiedTopology: true,
-dbName: process.env.DB_NAME
-})
-.then(() => {
-console.log("Database connected!");
-app.listen(PORT, () => {
-console.log('Server started on port ${PORT}');
-});
-})
-.catch((err) => {
-console.error("Error connecting to database", err);
-});
-
-module.exports = app;
+  const { email, password, firstName, lastName } = req.body;
+  try {
+  const user = await register(email, password, firstName, lastName);
+  res.status(201).json({ message: "User created successfully", user });
+  } catch (error) {
+  res.status(500).json({ message: "An error occurred while creating user" });
+  }
+  });
+  
+  // User login route
+  app.post('/login', async (req, res) => {
+    const { email, password } = req.body;
+    try {
+      const response = await axios.post('http://localhost:3000/api/users/login', {
+        email,
+        password
+      });
+      res.cookie('jwt', response.data.token, { httpOnly: true });
+      res.status(200).json({ message: 'Logged in successfully', user: response.data.user });
+    } catch (error) {
+      res.status(400).json({ message: 'Invalid email or password' });
+    }
+  });
+  
+  // User logout route
+  app.get("/logout", (req, res) => {
+  res.clearCookie("jwt");
+  res.redirect("/");
+  });
+  
+  // Error handling for 404 route
+  app.use((req, res, next) => {
+  res.status(404).render("404");
+  });
+  
+  // Error handling middleware
+  app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send("Something went wrong!");
+  });
+  
+  // Connect to MongoDB Atlas and start server
+  mongoose
+  .connect(process.env.MONGODB_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  dbName: process.env.DB_NAME
+  })
+  .then(() => {
+  console.log("Database connected!");
+  app.listen(PORT, () => {
+  console.log('Server started on port ${PORT}');
+  });
+  })
+  .catch((err) => {
+  console.error("Error connecting to database", err);
+  });
+  
+  module.exports = app;

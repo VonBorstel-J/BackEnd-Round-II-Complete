@@ -1,20 +1,22 @@
 import mongoose from "mongoose";
 import bcrypt from "bcryptjs";
 
-const SALT_WORK_FACTOR = 10; 
+const SALT_WORK_FACTOR = 10;
 
-require('dotenv').config();
+require("dotenv").config();
 const MONGODB_URI = process.env.MONGODB_URI;
 
 // Create a new MongoDB Atlas connection
 mongoose
-  .connect(MONGODB_URI, {
+  .connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    dbName: "<mydatabase>"
-  }).then(() => {
-    console.log('Connected to MongoDB Atlas');
-  }).catch((err) => {
+    dbName: process.env.DB_NAME,
+  })
+  .then(() => {
+    console.log("Connected to MongoDB Atlas");
+  })
+  .catch((err) => {
     console.error(err);
   });
 

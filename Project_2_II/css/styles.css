@@ -5,10 +5,12 @@
 /* Define breakpoint sizes */
 /* Define spacing units */
 /* Define container sizes */
+/*RWD*/
 /* Global styles */
 html, body {
   height: 100%;
   font-size: 16px;
+  overflow-x: hidden;
 }
 
 body {
@@ -60,19 +62,15 @@ a:hover {
   border-color: black;
 }
 
-/* Define the hero background image */
-/* Define the hero overlay color */
 /* Define the hero CTA button color */
 /* Hero section styles */
 #hero {
   height: 60vh;
-  background-image: url("/img/hero.jpg");
   background-size: cover;
   background-position: center;
   position: relative;
 }
 #hero .hero-image {
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/img/hero.jpg");
   background-size: cover;
   background-position: center;
 }
@@ -133,6 +131,7 @@ section#about div.row div.col-md-6.my-auto p {
 /* Define breakpoint sizes */
 /* Define spacing units */
 /* Define container sizes */
+/*RWD*/
 .navbar {
   background-color: #333;
   font-family: "Montserrat", sans-serif;
@@ -177,6 +176,7 @@ section#about div.row div.col-md-6.my-auto p {
 /* Define breakpoint sizes */
 /* Define spacing units */
 /* Define container sizes */
+/*RWD*/
 /* Footer section styles */
 footer {
   background-color: #2e2e2e;
@@ -201,4 +201,303 @@ footer .social-icons a:hover {
 footer p {
   font-size: 1rem;
   margin-bottom: 0;
+}
+
+html,
+body {
+  height: 100%;
+  font-size: 16px;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  line-height: 1.5;
+  background-color: #1f1f1f;
+  color: #fff;
+  overflow-x: hidden;
+}
+
+a {
+  color: #ff6d00;
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+}
+a:hover {
+  color: #cc5700;
+}
+
+.container {
+  max-width: 1200px;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+.btn {
+  color: #fff;
+  background-color: #ff6d00;
+  border-color: #ff6d00;
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 3rem;
+  padding: 0.5rem 1.5rem;
+  transition: all 0.3s ease-in-out;
+}
+.btn:hover {
+  color: #fff;
+  background-color: #cc5700;
+  border-color: #cc5700;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #ff6d00;
+  border-color: #ff6d00;
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 3rem;
+  padding: 0.5rem 1.5rem;
+  transition: all 0.3s ease-in-out;
+}
+.btn-primary:hover {
+  color: #fff;
+  background-color: #cc5700;
+  border-color: #cc5700;
+}
+
+.btn-secondary {
+  color: #2e2e2e;
+  background-color: #0c0c0c;
+  border-color: #0c0c0c;
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 3rem;
+  padding: 0.5rem 1.5rem;
+  transition: all 0.3s ease-in-out;
+}
+.btn-secondary:hover {
+  color: #2e2e2e;
+  background-color: black;
+  border-color: black;
+}
+
+.navbar {
+  background-color: #0c0c0c;
+  font-family: "Montserrat", sans-serif;
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+.navbar .navbar-brand {
+  font-weight: bold;
+  color: #ff6d00;
+  font-size: 1.5rem;
+  transition: color 0.3s ease-in-out;
+}
+.navbar .navbar-brand:hover {
+  color: #cc5700;
+}
+.navbar .nav-link {
+  font-weight: bold;
+  color: #fff;
+  font-size: 1rem;
+  margin-right: 1rem;
+  transition: color 0.3s ease-in-out;
+}
+.navbar .nav-link:hover {
+  color: white;
+}
+.navbar .navbar-toggler {
+  border-color: #fff;
+}
+.navbar .navbar-toggler .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22' /%3E%3C/svg%3E");
+}
+.navbar .form-control {
+  background-color: #fff;
+  color: #0c0c0c;
+  border: none;
+  border-radius: 2rem;
+  margin-right: 1rem;
+}
+.navbar .btn-outline-light {
+  color: #fff;
+  background-color: transparent;
+  border-color: transparent;
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 3rem;
+  padding: 0.5rem 1.5rem;
+  transition: all 0.3s ease-in-out;
+  border-color: #fff;
+}
+.navbar .btn-outline-light:hover {
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0);
+  border-color: rgba(0, 0, 0, 0);
+}
+
+#hero {
+  height: 80vh;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+#hero h1 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 4rem;
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+#hero p {
+  font-size: 1.5rem;
+  color: #fff;
+}
+#hero .btn-primary {
+  color: #fff;
+  background-color: #ff6d00;
+  border-color: #ff6d00;
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 3rem;
+  padding: 0.5rem 1.5rem;
+  transition: all 0.3s ease-in-out;
+}
+#hero .btn-primary:hover {
+  color: #fff;
+  background-color: #cc5700;
+  border-color: #cc5700;
+}
+
+#services {
+  padding: 5rem 0;
+  background-color: #2e2e2e;
+}
+#services h2 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 3rem;
+  color: #1f1f1f;
+  text-align: center;
+}
+#services .service-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+  position: relative;
+  transition: transform 0.3s ease-in-out;
+  cursor: pointer;
+}
+#services .service-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+}
+#services .service-item i {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: #0c0c0c;
+}
+#services .service-item h3 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+#services .service-item p {
+  text-align: center;
+  font-size: 1rem;
+  margin-bottom: 0;
+}
+
+footer {
+  background-color: #0c0c0c;
+  color: #2e2e2e;
+  padding: 3rem 0;
+  text-align: center;
+}
+footer .social-icons {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+footer .social-icons a {
+  font-size: 1.5rem;
+  margin: 0 1rem;
+  color: #2e2e2e;
+  transition: transform 0.3s ease-in-out;
+}
+footer .social-icons a:hover {
+  color: #ff6d00;
+  transform: scale(1.2);
+}
+footer p {
+  font-size: 1rem;
+  margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+  #hero {
+    height: 60vh;
+  }
+  h1 {
+    font-size: 3rem;
+  }
+}
+#services {
+  padding: 3rem 0;
+}
+
+h2 {
+  font-size: 2.5rem;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 1rem 0;
+  }
+  .navbar-brand {
+    font-size: 1.5rem;
+  }
+  .navbar-toggler {
+    font-size: 1.5rem;
+  }
+  .navbar-nav {
+    font-size: 1.2rem;
+  }
+  #hero {
+    height: 40vh;
+  }
+  h1 {
+    font-size: 2rem;
+  }
+  p {
+    font-size: 1.2rem;
+  }
+}
+#services {
+  padding: 2rem 0;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+.service-item i {
+  font-size: 2rem;
+}
+.service-item h3 {
+  font-size: 1.2rem;
 }/*# sourceMappingURL=styles.css.map */

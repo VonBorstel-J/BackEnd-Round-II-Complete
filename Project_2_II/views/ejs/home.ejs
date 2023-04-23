@@ -5,14 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Product Catalog</title>
     <!-- Bootstrap CSS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
       crossorigin="anonymous"
     />
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+      crossorigin="anonymous"
+    ></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.3/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/js/bootstrap.min.js"></script>
+    <script src="/components/modal.js" ></script>
+    <script src="https://unpkg.com/vue@2.6.14"></script>
     <!-- Custom CSS -->
     <link rel="stylesheet" href="/css/styles.css" />
     <!-- Font Awesome -->
@@ -24,126 +35,73 @@
     <!-- Vegas JS -->
     <link rel="stylesheet" href="/vegas/vegas.min.css" />
     <!-- Favicon -->
-    <link rel="icon" type="favicon-32x32.png" sizes="32x32" href="/favicon-16x16.png" />
-    <link rel="icon" type="favicon-16x16.png" sizes="16x16" href="/favicon-32x32.png" />
-    <script src="/components/loginModal.vue"></script>
+    <link
+      rel="icon"
+      type="favicon-32x32.png"
+      sizes="32x32"
+      href="/favicon-16x16.png"
+    />
+    <link
+      rel="icon"
+      type="favicon-16x16.png"
+      sizes="16x16"
+      href="/favicon-32x32.png"
+    />
   </head>
   <body>
     <%- include('./header') %>
     <div id="login-modal-app">
-      <!-- Button to open modal -->
-      <button class="btn btn-primary" @click="showModal = true">
-        Login/Sign Up
-      </button>
       <!-- Modal -->
-      <div
-        class="modal"
-        tabindex="-1"
-        role="dialog"
-        :class="{ 'is-active': showModal }"
-      >
-        <div class="modal-background"></div>
-        <div class="modal-card">
-          <header class="modal-card-head">
-            <p class="modal-card-title">{{ modalTitle }}</p>
-            <button
-              class="delete"
-              aria-label="close"
-              @click="showModal = false"
-            ></button>
-          </header>
-          <section class="modal-card-body">
-            <!-- Login form -->
-            <form v-if="isLogin" @submit.prevent="login">
-              <div class="field">
-                <label class="label">Email</label>
-                <div class="control">
-                  <input class="input" type="email" v-model="email" required />
+      <div class="modal" tabindex="-1" role="dialog" :class="{ 'show': showModal }">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">{{ modalTitle }}</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close" @click="showModal = false">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <!-- Login form -->
+              <form v-if="isLogin" @submit.prevent="login">
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input type="email" class="form-control" id="email" v-model="email" required>
                 </div>
-              </div>
-              <div class="field">
-                <label class="label">Password</label>
-                <div class="control">
-                  <input
-                    class="input"
-                    type="password"
-                    v-model="password"
-                    required
-                  />
+                <div class="form-group">
+                  <label for="password">Password</label>
+                  <input type="password" class="form-control" id="password" v-model="password" required>
                 </div>
-              </div>
-              <div class="field">
-                <div class="control">
-                  <button class="button is-link" type="submit">Login</button>
+                <button type="submit" class="btn btn-primary">Login</button>
+                <a href="#" @click="isLogin = false">Don't have an account? Sign up here.</a>
+              </form>
+              
+              <!-- Sign up form -->
+              <form v-else @submit.prevent="signup">
+                <div class="form-group">
+                  <label for="firstName">First Name</label>
+                  <input type="text" class="form-control" id="firstName" v-model="firstName" required>
                 </div>
-              </div>
-              <div class="field">
-                <p class="has-text-grey">
-                  <a @click="isLogin = false"
-                    >Don't have an account? Sign up here.</a
-                  >
-                </p>
-              </div>
-            </form>
-
-            <!-- Sign up form -->
-            <form v-else @submit.prevent="signup">
-              <div class="field">
-                <label class="label">First Name</label>
-                <div class="control">
-                  <input
-                    class="input"
-                    type="text"
-                    v-model="firstName"
-                    required
-                  />
+                <div class="form-group">
+                  <label for="lastName">Last Name</label>
+                  <input type="text" class="form-control" id="lastName" v-model="lastName" required>
                 </div>
-              </div>
-              <div class="field">
-                <label class="label">Last Name</label>
-                <div class="control">
-                  <input
-                    class="input"
-                    type="text"
-                    v-model="lastName"
-                    required
-                  />
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input type="email" class="form-control" id="email" v-model="email" required>
                 </div>
-              </div>
-              <div class="field">
-                <label class="label">Email</label>
-                <div class="control">
-                  <input class="input" type="email" v-model="email" required />
+                <div class="form-group">
+                  <label for="password">Password</label>
+                  <input type="password" class="form-control" id="password" v-model="password" required>
                 </div>
-              </div>
-              <div class="field">
-                <label class="label">Password</label>
-                <div class="control">
-                  <input
-                    class="input"
-                    type="password"
-                    v-model="password"
-                    required
-                  />
-                </div>
-              </div>
-              <div class="field">
-                <div class="control">
-                  <button class="button is-link" type="submit">Sign up</button>
-                </div>
-              </div>
-              <div class="field">
-                <p class="has-text-grey">
-                  <a @click="isLogin = true"
-                    >Already have an account? Log in here.</a
-                  >
-                </p>
-              </div>
-            </form>
-          </section>
+                <button type="submit" class="btn btn-primary">Sign up</button>
+                <a href="#" @click="isLogin = true">Already have an account? Log in here.</a>
+              </form>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+      
     <!-- Hero Section -->
     <main>
       <section id="hero" class="container-fluid py-5">
@@ -159,7 +117,7 @@
             </a>
           </div>
           <div class="col-md-6">
-            <div class="hero-image"></div>
+            <div id="hero" class="hero-image"></div>
           </div>
         </div>
       </section>
@@ -241,7 +199,6 @@
     <script src="https://cdn.jsdelivr.net/npm/axios@0.21.1"></script>
     <script src="/vegas/vegas.min.js"></script>
     <script src="https://unpkg.com/vue@2.6.14"></script>
-
     <script>
       $(function () {
         $("#hero").vegas({
@@ -315,6 +272,24 @@
       };
 
       createApp(loginModalApp).mount("#login-modal-app");
+    </script>
+    <script>
+      const loginButton = document.getElementById("login-button");
+      loginButton.addEventListener("click", async () => {
+        const email = document.getElementById("email-input").value;
+        const password = document.getElementById("password-input").value;
+
+        try {
+          const response = await axios.post("/api/users/login", {
+            email: email,
+            password: password,
+          });
+          localStorage.setItem("token", response.data.token);
+          window.location.href = "/dashboard";
+        } catch (error) {
+          console.error(error);
+        }
+      });
     </script>
   </body>
 </html>

@@ -4,6 +4,7 @@
 html, body {
     height: 100%;
     font-size: 16px;
+    overflow-x: hidden;
   }
   
   body {
@@ -55,24 +56,16 @@ html, body {
     }
   }
   
-  /* Define the hero background image */
-  $hero-bg: url('/img/hero.jpg');
-  
-  /* Define the hero overlay color */
-  $hero-overlay: rgba(0, 0, 0, 0.5);
-  
   /* Define the hero CTA button color */
   $hero-cta: $accent-color;
   
   /* Hero section styles */
   #hero {
     height: 60vh;
-    background-image: $hero-bg;
     background-size: cover;
     background-position: center;
     position: relative;
     .hero-image {
-      background-image: linear-gradient(to bottom, $hero-overlay, $hero-overlay), $hero-bg;
       background-size: cover;
       background-position: center;
       // height: 100%;

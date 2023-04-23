@@ -259,7 +259,14 @@ app.get("/setusername", (req, res) => {
   res.send("Username set in session");
 });
 
-
+app.get("/set-session", (req, res) => {
+  req.session.mySession = "sessionValue";
+  console.log(req.session); // log session information
+  res.send("Session has been set");
+  const cookieValue = req.cookies.myCookie;
+  const sessionValue = req.session.mySession;
+  res.send(`Cookie value: ${cookieValue}, Session value: ${sessionValue}`);
+});
 
 
 module.exports = app;

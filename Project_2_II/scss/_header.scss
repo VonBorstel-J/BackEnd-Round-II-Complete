@@ -2,8 +2,8 @@
 
 // navbar background color and font
 .navbar {
-  background-color: #333; // example color, change to your preference
-  font-family: "Montserrat", sans-serif; // example font, change to your preference
+  background-color: #333;
+  font-family: "Montserrat", sans-serif;
 
   // navbar brand
   &-brand {
@@ -13,36 +13,68 @@
   // navbar links
   &-nav {
     .nav-link {
-      color: #fff; // example color, change to your preference
-      font-size: 1.2rem; // example size, change to your preference
+      color: #fff;
+      font-size: 1.2rem;
       text-transform: uppercase;
-      margin-right: 1rem; // example spacing, change to your preference
+      margin-right: 1rem;
       transition: color 0.3s ease-in-out;
 
       &:hover {
-        color: #ff6d00; // example color, change to your preference
+        color: #ff6d00;
       }
+    }
+  }
+
+  // search bar and login button container
+  .search-login-container {
+    display: flex;
+    align-items: center;
+
+    @media (max-width: $breakpoint-tablet) {
+      flex-direction: column;
     }
   }
 
   // search bar
   .form-control {
-    background-color: #fff; // example color, change to your preference
-    color: #333; // example color, change to your preference
+    background-color: #fff;
+    color: #333;
     border: none;
-    border-radius: 2rem; // example radius, change to your preference
-    margin-right: 1rem; // example spacing, change to your preference
+    border-radius: 2rem;
+    margin-right: 1rem;
   }
 
   // search button
   .btn-outline-light {
-    border-color: #fff; // example color, change to your preference
-    border-radius: 2rem; // example radius, change to your preference
+    border-color: #fff;
+    border-radius: 2rem;
     transition: background-color 0.3s ease-in-out;
 
     &:hover {
-      background-color: #fff; // example color, change to your preference
-      color: #333; // example color, change to your preference
+      background-color: #fff;
+      color: #333;
+    }
+  }
+
+  // login button container
+  .login-button-container {
+    margin-left: 1rem;
+
+    @media (max-width: $breakpoint-tablet) {
+      margin-left: 0;
+      margin-top: 1rem;
+    }
+
+    .nav-link {
+      color: #fff;
+      font-size: 1.2rem;
+      text-transform: uppercase;
+      margin-right: 1rem;
+      transition: color 0.3s ease-in-out;
+
+      &:hover {
+        color: #ff6d00;
+      }
     }
   }
 

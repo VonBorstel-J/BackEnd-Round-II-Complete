@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const Product = require('./products');
-const Cart = require('./cartModel');
+const Product = require('./products.cjs');
+const Cart = require('./cartModel.cjs');
 
 router.get('/api', async (req, res) => {
   try {

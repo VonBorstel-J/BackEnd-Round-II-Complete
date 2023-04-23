@@ -99,7 +99,7 @@
 const express = require("express");
 const router = express.Router();
 const { check, validationResult } = require("express-validator");
-const Cart = require("../models/cart");
+const Cart = require("../models/cart.cjs");
 
 // Middleware to check if cart item exists
 const cartItemExists = async (req, res, next) => {

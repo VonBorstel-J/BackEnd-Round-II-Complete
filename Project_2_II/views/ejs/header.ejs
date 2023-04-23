@@ -28,16 +28,11 @@
           <a class="nav-link" href="/contact">Contact</a>
         </li>
       </ul>
-          <!-- Modal button -->
-      <button class="nav-link btn btn-primary" style="font-size: 18px" @click="showModal = true">Login/Signup</button>
-      <div class="form-inline my-2 my-lg-0 ml-3">
-        <input
-          class="form-control mr-sm-2"
-          type="search"
-          name="query"
-          placeholder="Search"
-          aria-label="Search"
-        />
+      <div class="search-login-container">
+        <form class="form-inline">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+        </form>
       </div>
     </div>
   </nav>
@@ -74,8 +69,8 @@
         </div>
       </div>
     </header>
-    <script src="/components/modal.js"></script>
     <!-- Custom scripts -->
-    <script src="/components/app.js"></script>
+    <!-- <script src="/components/modal.cjs"></script> -->
+    <script src="bundle.js"></script>
     </body>
     </html>

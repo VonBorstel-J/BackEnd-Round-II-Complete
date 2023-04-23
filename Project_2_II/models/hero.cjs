@@ -1,3 +1,6 @@
+import "vegas/dist/vegas.min.css";
+import "vegas/dist/vegas.min.js";
+const $ = require('jquery');
 $(function () {
   $("#hero").vegas({
     slides: [

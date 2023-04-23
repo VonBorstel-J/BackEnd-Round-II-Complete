@@ -141,6 +141,30 @@ a {
   }
 }
 
+.login-button-container {
+  position: absolute;
+  top: 10px;
+  right: 150px;
+  z-index: 1000;
+
+  @media (max-width: 991px) {
+    right: 50px;
+  }
+
+  @media (max-width: 767px) {
+    position: static;
+    text-align: right;
+    margin: 10px 0;
+  }
+
+  .nav-link {
+    &.btn {
+      @media (max-width: 767px) {
+        font-size: 14px;
+      }
+    }
+  }
+}
 // Hero section styles
 #hero { 
   height: 80vh;
